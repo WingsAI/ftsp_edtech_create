@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="Aprenda de forma conversacional e interativa">
+
+    <title>ConversaLearn - Aprendizado Conversacional</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header com Gamificação -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="index.html" class="back-btn" title="Voltar para início">←</a>
+                <h1>💬 ConversaLearn</h1>
+            </div>
+            <div class="header-right">
+                <div class="stat-item">
+                    <span class="stat-icon">🔥</span>
+                    <span class="stat-value" id="streak">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-value" id="xp">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Progresso -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% completo</div>
+        </div>
+
+        <!-- Custom Content Indicator -->
+        <div id="customContentIndicator" class="custom-content-indicator" style="display: none;">
+            <span>📝 Conteúdo Personalizado</span>
+            <button onclick="clearCustomContent()" class="clear-custom-btn">✕</button>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <main class="chat-container" id="chatContainer">
+        <!-- Mensagens aparecerão aqui dinamicamente -->
+    </main>
+
+    <!-- Área de Interação -->
+    <footer class="interaction-area" id="interactionArea">
+        <!-- Botões e opções aparecerão aqui -->
+    </footer>
+
+    <!-- Toast para Feedback -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

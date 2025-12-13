@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conteúdo | ConversaLearn</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'moz-green': '#009639',
+                        'moz-yellow': '#FCE100',
+                        'moz-red': '#D21034',
+                        'brutal-bg': '#FFFEF2',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .font-brutal {
+            font-family: 'Space Grotesk', Impact, sans-serif;
+            font-weight: 700;
+        }
+
+        .font-mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .neo-brutal {
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .neo-brutal:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        .char-counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .char-counter.warning {
+            color: #D21034;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brutal-bg">
+
+    <!-- Navigation -->
+    <nav class="bg-moz-green border-b-6 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-moz-yellow border-4 border-black rotate-12 flex items-center justify-center font-brutal text-2xl">
+                        ✝
+                    </div>
+                    <h1 class="font-brutal text-white text-2xl md:text-3xl">
+                        CRIAR CONTEÚDO
+                    </h1>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-white font-bold hover:text-moz-yellow transition">
+                        ← VOLTAR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-4 py-12">
+
+        <!-- Header Info -->
+        <div class="bg-white border-6 border-black neo-brutal p-8 mb-8">
+            <h2 class="font-brutal text-4xl mb-4">✍️ CRIAR SUA PRÓPRIA LIÇÃO</h2>
+            <p class="text-lg mb-4">
+                Cole seu texto abaixo e transforme em uma lição conversacional!
+                O conteúdo será salvo no seu navegador e usado no webapp.
+            </p>
+            <div class="bg-moz-yellow border-4 border-black p-4 inline-block">
+                <p class="font-bold">📝 Máximo: 1000 caracteres | 💾 Salvo automaticamente</p>
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div id="alert" class="hidden mb-6"></div>
+
+        <!-- Text Input Section -->
+        <div class="bg-white border-6 border-black neo-brutal p-8 mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-brutal text-2xl">SEU CONTEÚDO</h3>
+                <div class="char-counter font-mono text-lg">
+                    <span id="charCount">0</span> / 1000
+                </div>
+            </div>
+
+            <textarea
+                id="userContent"
+                class="w-full h-64 p-4 border-4 border-black font-mono text-sm resize-none focus:outline-none focus:border-moz-green"
+                placeholder="Cole seu texto aqui...
+
+Exemplo:
+
+LIÇÃO: Minha Primeira Lição
+TEMPO: 3 minutos
+
+[GANCHO]
+Uma pergunta interessante que desperta curiosidade...
+Mais contexto sobre essa pergunta
+BOTÃO: Vamos descobrir!
+
+[CONCEITO]
+Aqui você explica o conceito principal
+Use **negrito** para destacar palavras-chave
+Pode usar emojis também! 💡
+BOTÃO: Entendi!
+XP: 5
+
+[QUIZ]
+PERGUNTA: Qual a resposta correta?
+A) Primeira opção | CORRETO | Parabéns! Você acertou! 🎉
+B) Segunda opção | ERRADO | Tente novamente! 💪
+C) Terceira opção | ERRADO | Quase lá! Continue tentando! 💡
+XP_CORRETO: 10
+XP_ERRADO: 2
+
+[REFORÇO]
+Parabéns! Você completou a lição! 🎊
+Continue assim e você vai longe!
+BOTÃO: Finalizar
+XP_BONUS: 20"
+                maxlength="1000"></textarea>
+
+            <div class="mt-4 flex flex-wrap gap-4">
+                <button
+                    onclick="clearContent()"
+                    class="bg-gray-300 text-black px-6 py-3 border-4 border-black neo-brutal font-bold hover:bg-gray-400">
+                    🗑️ LIMPAR
+                </button>
+                <button
+                    onclick="loadExample()"
+                    class="bg-moz-yellow text-black px-6 py-3 border-4 border-black neo-brutal font-bold hover:bg-yellow-300">
+                    📄 CARREGAR EXEMPLO
+                </button>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="bg-white border-6 border-black neo-brutal p-8 mb-8">
+            <h3 class="font-brutal text-2xl mb-4">👁️ PREVIEW JSON</h3>
+            <pre id="jsonPreview" class="bg-black text-green-400 p-4 rounded font-mono text-xs overflow-x-auto h-64 overflow-y-auto">
+// Cole texto acima e veja o JSON gerado aqui...
+            </pre>
+        </div>
+
+        <!-- Actions -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <button
+                onclick="saveToCache()"
+                class="bg-moz-green text-white px-8 py-6 border-6 border-black neo-brutal font-brutal text-2xl hover:bg-green-700">
+                💾 SALVAR NO CACHE
+            </button>
+            <button
+                onclick="testInApp()"
+                class="bg-moz-red text-white px-8 py-6 border-6 border-black neo-brutal font-brutal text-2xl hover:bg-red-700">
+                🚀 TESTAR NO WEBAPP
+            </button>
+        </div>
+
+        <!-- Cache Status -->
+        <div class="mt-8 bg-black text-white border-6 border-moz-green neo-brutal p-6">
+            <h3 class="font-brutal text-xl mb-4">📊 STATUS DO CACHE</h3>
+            <div id="cacheStatus" class="font-mono text-sm">
+                Verificando...
+            </div>
+            <button
+                onclick="clearCache()"
+                class="mt-4 bg-moz-red text-white px-4 py-2 border-4 border-white font-bold hover:bg-red-700">
+                🗑️ LIMPAR CACHE
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const textarea = document.getElementById('userContent');
+        const charCount = document.getElementById('charCount');
+        const jsonPreview = document.getElementById('jsonPreview');
+        const cacheStatus = document.getElementById('cacheStatus');
+
+        // Update character count
+        textarea.addEventListener('input', () => {
+            const count = textarea.value.length;
+            charCount.textContent = count;
+
+            if (count > 900) {
+                charCount.parentElement.classList.add('warning');
+            } else {
+                charCount.parentElement.classList.remove('warning');
+            }
+
+            // Auto-generate preview
+            generatePreview();
+        });
+
+        // Generate JSON Preview
+        function generatePreview() {
+            const text = textarea.value.trim();
+
+            if (!text) {
+                jsonPreview.textContent = '// Cole texto acima e veja o JSON gerado aqui...';
+                return;
+            }
+
+            try {
+                const json = textToJSON(text);
+                jsonPreview.textContent = JSON.stringify(json, null, 2);
+            } catch (error) {
+                jsonPreview.textContent = `// Erro: ${error.message}`;
+            }
+        }
+
+        // Convert text to JSON
+        function textToJSON(text) {
+            const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+
+            const lesson = {
+                id: "custom-lesson-" + Date.now(),
+                title: "",
+                estimatedTime: "3 minutos",
+                drops: []
+            };
+
+            let i = 0;
+            while (i < lines.length) {
+                const line = lines[i];
+
+                if (line.startsWith('LIÇÃO:')) {
+                    lesson.title = line.replace('LIÇÃO:', '').trim();
+                } else if (line.startsWith('TEMPO:')) {
+                    lesson.estimatedTime = line.replace('TEMPO:', '').trim();
+                } else if (line.startsWith('[GANCHO]')) {
+                    const result = parseSection(lines, i + 1, 'gancho');
+                    lesson.drops.push(result.drop);
+                    i = result.nextIndex - 1;
+                } else if (line.startsWith('[CONCEITO]')) {
+                    const result = parseSection(lines, i + 1, 'conceito');
+                    lesson.drops.push(result.drop);
+                    i = result.nextIndex - 1;
+                } else if (line.startsWith('[QUIZ]') || line.startsWith('[AÇÃO]')) {
+                    const type = line.startsWith('[QUIZ]') ? 'reflexao' : 'acao';
+                    const result = parseQuiz(lines, i + 1, type);
+                    lesson.drops.push(result.drop);
+                    i = result.nextIndex - 1;
+                } else if (line.startsWith('[REFORÇO]')) {
+                    const result = parseSection(lines, i + 1, 'reforco');
+                    lesson.drops.push(result.drop);
+                    i = result.nextIndex - 1;
+                }
+
+                i++;
+            }
+
+            return lesson;
+        }
+
+        function parseSection(lines, startIndex, type) {
+            const messages = [];
+            let button = 'Continuar';
+            let xp = 5;
+            let bonusXP = 20;
+            let i = startIndex;
+
+            while (i < lines.length && !lines[i].startsWith('[')) {
+                const line = lines[i];
+
+                if (line.startsWith('BOTÃO:')) {
+                    button = line.replace('BOTÃO:', '').trim();
+                } else if (line.startsWith('XP:')) {
+                    xp = parseInt(line.replace('XP:', '').trim());
+                } else if (line.startsWith('XP_BONUS:')) {
+                    bonusXP = parseInt(line.replace('XP_BONUS:', '').trim());
+                } else if (line) {
+                    messages.push(line);
+                }
+
+                i++;
+            }
+
+            const drop = {
+                type: type,
+                sender: "professor",
+                messages: messages.map((msg, idx) => ({
+                    text: msg,
+                    delay: idx * 1500
+                })),
+                interaction: {
+                    type: type === 'reforco' ? 'complete' : 'continue',
+                    button: button
+                }
+            };
+
+            if (type !== 'reforco' && type !== 'gancho') {
+                drop.xp = xp;
+            }
+
+            if (type === 'reforco') {
+                drop.interaction.bonusXP = bonusXP;
+            }
+
+            return { drop, nextIndex: i };
+        }
+
+        function parseQuiz(lines, startIndex, type) {
+            const messages = [];
+            let question = '';
+            const options = [];
+            let xpCorrect = 10;
+            let xpIncorrect = 2;
+            let i = startIndex;
+
+            while (i < lines.length && !lines[i].startsWith('[')) {
+                const line = lines[i];
+
+                if (line.startsWith('PERGUNTA:')) {
+                    question = line.replace('PERGUNTA:', '').trim();
+                } else if (line.startsWith('XP_CORRETO:')) {
+                    xpCorrect = parseInt(line.replace('XP_CORRETO:', '').trim());
+                } else if (line.startsWith('XP_ERRADO:')) {
+                    xpIncorrect = parseInt(line.replace('XP_ERRADO:', '').trim());
+                } else if (line.match(/^[ABC]\)/)) {
+                    const parts = line.split('|').map(p => p.trim());
+                    const optionText = parts[0].substring(3).trim();
+                    const isCorrect = parts[1] === 'CORRETO';
+                    const feedback = parts[2];
+
+                    options.push({
+                        id: parts[0][0].toLowerCase(),
+                        text: optionText,
+                        correct: isCorrect,
+                        feedback: feedback
+                    });
+                } else if (line && !line.startsWith('PERGUNTA:')) {
+                    messages.push(line);
+                }
+
+                i++;
+            }
+
+            const drop = {
+                type: type,
+                sender: "professor",
+                messages: messages.map((msg, idx) => ({
+                    text: msg,
+                    delay: idx * 1000
+                })),
+                interaction: {
+                    type: "quiz",
+                    question: question || "Escolha a opção correta:",
+                    options: options,
+                    xpCorrect: xpCorrect,
+                    xpIncorrect: xpIncorrect
+                }
+            };
+
+            return { drop, nextIndex: i };
+        }
+
+        // Save to Cache
+        function saveToCache() {
+            const text = textarea.value.trim();
+
+            if (!text) {
+                showAlert('❌ Cole algum texto primeiro!', 'error');
+                return;
+            }
+
+            if (text.length > 1000) {
+                showAlert('❌ Texto muito longo! Máximo: 1000 caracteres', 'error');
+                return;
+            }
+
+            try {
+                const json = textToJSON(text);
+                const fullContent = {
+                    courses: [{
+                        id: "custom-course",
+                        title: "Meu Conteúdo Personalizado",
+                        description: "Conteúdo criado por você",
+                        lessons: [json]
+                    }],
+                    metadata: {
+                        version: "1.0",
+                        schema: "conversational-learning",
+                        custom: true,
+                        createdAt: new Date().toISOString()
+                    }
+                };
+
+                localStorage.setItem('conversalearn-custom-content', JSON.stringify(fullContent));
+                showAlert('✅ Conteúdo salvo com sucesso no cache!', 'success');
+                updateCacheStatus();
+            } catch (error) {
+                showAlert('❌ Erro ao salvar: ' + error.message, 'error');
+            }
+        }
+
+        // Test in App
+        function testInApp() {
+            saveToCache();
+            setTimeout(() => {
+                window.location.href = 'webapp.html';
+            }, 1000);
+        }
+
+        // Clear Content
+        function clearContent() {
+            if (confirm('Limpar todo o conteúdo?')) {
+                textarea.value = '';
+                charCount.textContent = '0';
+                generatePreview();
+            }
+        }
+
+        // Load Example
+        function loadExample() {
+            textarea.value = `LIÇÃO: O Amor de Deus
+TEMPO: 3 minutos
+
+[GANCHO]
+Você já parou para pensar: quanto Deus te ama? 💙
+A resposta pode surpreender você!
+BOTÃO: Quero saber!
+
+[CONCEITO]
+A Bíblia diz: **"Porque Deus amou o mundo de tal maneira que deu o seu Filho"** (João 3:16)
+Deus não apenas diz que te ama. Ele PROVOU com ação! ✝️
+Enquanto ainda éramos pecadores, Cristo morreu por nós.
+BOTÃO: Que amor incrível!
+XP: 5
+
+[QUIZ]
+PERGUNTA: Como Deus demonstrou Seu amor?
+A) Enviando Jesus para morrer por nós | CORRETO | Exatamente! Esse é o maior ato de amor da história! 🎉
+B) Apenas dizendo palavras bonitas | ERRADO | O amor de Deus é ação, não só palavras! Releia João 3:16 💡
+C) Dando bens materiais | ERRADO | O maior presente foi Jesus, não coisas! 💙
+XP_CORRETO: 10
+XP_ERRADO: 2
+
+[REFORÇO]
+Você completou esta lição! 🎊
+Nunca esqueça: Deus te ama tanto que deu Jesus!
+Isso muda tudo! 💙✝️
+BOTÃO: Amém!
+XP_BONUS: 20`;
+
+            charCount.textContent = textarea.value.length;
+            generatePreview();
+            showAlert('📄 Exemplo carregado! Edite como quiser.', 'info');
+        }
+
+        // Clear Cache
+        function clearCache() {
+            if (confirm('Limpar conteúdo salvo no cache? Isso NÃO apaga o texto atual.')) {
+                localStorage.removeItem('conversalearn-custom-content');
+                showAlert('🗑️ Cache limpo! O webapp usará o conteúdo padrão.', 'info');
+                updateCacheStatus();
+            }
+        }
+
+        // Update Cache Status
+        function updateCacheStatus() {
+            const cached = localStorage.getItem('conversalearn-custom-content');
+
+            if (cached) {
+                try {
+                    const data = JSON.parse(cached);
+                    const size = new Blob([cached]).size;
+                    const created = new Date(data.metadata.createdAt).toLocaleString('pt-BR');
+
+                    cacheStatus.innerHTML = `
+                        ✅ <strong>Conteúdo personalizado salvo</strong><br>
+                        📦 Tamanho: ${size} bytes<br>
+                        📅 Criado em: ${created}<br>
+                        📚 Lição: "${data.courses[0].lessons[0].title}"<br>
+                        <span class="text-green-400">O webapp usará este conteúdo!</span>
+                    `;
+                } catch (error) {
+                    cacheStatus.innerHTML = '⚠️ Cache corrompido. Limpe e tente novamente.';
+                }
+            } else {
+                cacheStatus.innerHTML = `
+                    ℹ️ Nenhum conteúdo personalizado salvo.<br>
+                    O webapp usará o conteúdo padrão (Fundamentos da Fé).
+                `;
+            }
+        }
+
+        // Show Alert
+        function showAlert(message, type) {
+            const alert = document.getElementById('alert');
+            const colors = {
+                success: 'bg-moz-green text-white',
+                error: 'bg-moz-red text-white',
+                info: 'bg-moz-yellow text-black'
+            };
+
+            alert.className = `${colors[type]} border-4 border-black neo-brutal p-4 mb-6`;
+            alert.textContent = message;
+            alert.classList.remove('hidden');
+
+            setTimeout(() => {
+                alert.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Initialize
+        updateCacheStatus();
+        generatePreview();
+    </script>
+
+</body>
+</html>

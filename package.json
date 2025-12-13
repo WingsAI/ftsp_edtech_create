@@ -1,0 +1,19 @@
+{
+  "name": "conversalearn-mozambique",
+  "version": "1.0.0",
+  "description": "Plataforma de micro-learning conversacional",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.67.3",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

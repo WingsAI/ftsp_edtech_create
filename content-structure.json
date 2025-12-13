@@ -1,0 +1,616 @@
+{
+  "courses": [
+    {
+      "id": "fundamentos-fe-crista",
+      "title": "Fundamentos da Fé Cristã",
+      "description": "Descubra quem é Deus e quem somos nós - Volume 1",
+      "context": "Moçambique",
+      "lessons": [
+        {
+          "id": "lesson-01",
+          "title": "Quem é Deus?",
+          "estimatedTime": "4 minutos",
+          "drops": [
+            {
+              "type": "gancho",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Maria caminha ao amanhecer para buscar água. O céu alaranjado, os pássaros cantando, a terra molhada após a chuva... 🌅",
+                  "delay": 0
+                },
+                {
+                  "text": "Ela olha para o céu e pensa: 'Quem fez tudo isso?'",
+                  "delay": 2000
+                },
+                {
+                  "text": "Essa pergunta também mora no seu coração? 🤔",
+                  "delay": 3500
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Quero saber!"
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "A Bíblia não ignora essa pergunta. Ela começa respondendo diretamente:",
+                  "delay": 0
+                },
+                {
+                  "text": "**'No princípio, criou Deus os céus e a terra.'** (Gênesis 1:1)",
+                  "delay": 1500
+                },
+                {
+                  "text": "Antes de existir céu, terra, mar, animais e pessoas, **Deus já existia**.",
+                  "delay": 3000
+                },
+                {
+                  "text": "Ele não teve começo, não foi criado, não depende de ninguém. Ele é o **Criador** de tudo! ✨",
+                  "delay": 4500
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Continuar"
+              },
+              "xp": 5
+            },
+            {
+              "type": "reflexao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "A própria criação aponta para Deus. Como o Salmo 19:1 diz:",
+                  "delay": 0
+                },
+                {
+                  "text": "**'Os céus declaram a glória de Deus e o firmamento anuncia a obra das suas mãos.'**",
+                  "delay": 1500
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "O que vemos quando olhamos para o mundo?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "A obra de um Criador sábio e poderoso",
+                    "correct": true,
+                    "feedback": "Exatamente! 🎉 O mundo não é um acidente, mas a obra intencional de Deus!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Apenas um acidente ou acaso",
+                    "correct": false,
+                    "feedback": "A Bíblia nos ensina que há um Criador por trás de tudo! A ordem e beleza apontam para Ele. 💡"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Apenas natureza sem significado",
+                    "correct": false,
+                    "feedback": "A criação tem grande significado: ela declara a glória de Deus! Reflita nisso. 🌍"
+                  }
+                ],
+                "xpCorrect": 10,
+                "xpIncorrect": 2
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Em muitos lugares, há crenças em vários espíritos, deuses locais ou ancestrais.",
+                  "delay": 0
+                },
+                {
+                  "text": "Mas a Bíblia é muito clara:",
+                  "delay": 1500
+                },
+                {
+                  "text": "**'Eu sou o Senhor, e não há outro; fora de mim não há Deus.'** (Isaías 45:5)",
+                  "delay": 3000
+                },
+                {
+                  "text": "Existe apenas **um Deus verdadeiro**. Ele não é um entre outros - Ele é o único! 👑",
+                  "delay": 4500
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Entendi"
+              },
+              "xp": 5
+            },
+            {
+              "type": "acao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Se só existe um Deus verdadeiro, isso muda tudo! 🔥",
+                  "delay": 0
+                },
+                {
+                  "text": "Vamos pensar: em que devemos confiar?",
+                  "delay": 1500
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "Se só Deus é Deus, onde devemos colocar nossa confiança?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Somente em Deus - Ele merece toda confiança e adoração",
+                    "correct": true,
+                    "feedback": "Perfeito! 🎯 Só Ele é digno de toda nossa confiança, obediência e adoração!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Podemos dividir entre Deus e outras coisas",
+                    "correct": false,
+                    "feedback": "Não! Deus é único e merece toda adoração. Dividir é afastar-se dEle. 💪"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Principalmente em amuletos e tradições",
+                    "correct": false,
+                    "feedback": "Isso nos afasta do Deus verdadeiro. Só Ele é Senhor de tudo! ✨"
+                  }
+                ],
+                "xpCorrect": 15,
+                "xpIncorrect": 3
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Como é o caráter de Deus? A Bíblia revela:",
+                  "delay": 0
+                },
+                {
+                  "text": "Deus é **Santo** - completamente puro 🤍",
+                  "delay": 1500
+                },
+                {
+                  "text": "Deus é **Amor** - cuida e salva Seu povo ❤️",
+                  "delay": 3000
+                },
+                {
+                  "text": "Deus é **Justo** - odeia a injustiça e a maldade ⚖️",
+                  "delay": 4500
+                },
+                {
+                  "text": "Deus é **Todo-poderoso** - nada é impossível para Ele! 💪",
+                  "delay": 6000
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Que Deus maravilhoso!"
+              },
+              "xp": 5
+            },
+            {
+              "type": "reflexao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "**'Deus é amor'** (1 João 4:8) e Ele **'sustenta todas as coisas'** (Atos 17:25)",
+                  "delay": 0
+                },
+                {
+                  "text": "O que isso significa?",
+                  "delay": 1500
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "Deus está longe ou perto de nós?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Deus não está longe - nEle vivemos e nos movemos",
+                    "correct": true,
+                    "feedback": "Isso mesmo! 🎉 Deus dá vida, respiração e sustenta tudo. Ele não está distante!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Deus criou tudo e foi embora",
+                    "correct": false,
+                    "feedback": "Não! Deus sustenta tudo constantemente e está presente em toda parte. 🌍"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Deus só vê, mas não age",
+                    "correct": false,
+                    "feedback": "Deus vê E age! Ele governa a história e cuida de nós. 💙"
+                  }
+                ],
+                "xpCorrect": 10,
+                "xpIncorrect": 2
+              }
+            },
+            {
+              "type": "acao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Desafio final! 🎯",
+                  "delay": 0
+                },
+                {
+                  "text": "Jesus disse: **'Ao Senhor teu Deus adorarás e só a ele servirás.'** (Mateus 4:10)",
+                  "delay": 1500
+                },
+                {
+                  "text": "Como isso deve mudar nossa vida?",
+                  "delay": 3000
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "Se só Deus é Deus, como devo viver?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Não posso viver como se fosse dono de mim - pertenço ao Criador",
+                    "correct": true,
+                    "feedback": "Perfeito! 🔥 Conhecer a Deus muda tudo: como vivemos, pensamos e agimos!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Posso viver como quiser, Deus entende",
+                    "correct": false,
+                    "feedback": "Se Deus é Senhor, devemos obedecer e adorar só a Ele! Isso transforma tudo. 💡"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Posso dividir adoração entre Deus e outras coisas",
+                    "correct": false,
+                    "feedback": "Não podemos dividir adoração! Só Deus merece todo nosso coração. ❤️"
+                  }
+                ],
+                "xpCorrect": 15,
+                "xpIncorrect": 3
+              }
+            },
+            {
+              "type": "reforco",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Parabéns por completar esta lição! 🎊",
+                  "delay": 0
+                },
+                {
+                  "text": "Quando olhares para o céu, lembra: não é acaso, é **criação**! ✨",
+                  "delay": 1500
+                },
+                {
+                  "text": "Quando sentires medo, lembra: **só Deus é Senhor**. Ele é maior que tudo! 💪",
+                  "delay": 3000
+                },
+                {
+                  "text": "Busca conhecer cada vez mais quem Deus é. Sem Ele, tudo fica confuso; com Ele, a vida faz sentido! 🙏",
+                  "delay": 4500
+                }
+              ],
+              "interaction": {
+                "type": "complete",
+                "button": "Próxima lição",
+                "bonusXP": 20
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-02",
+          "title": "O Ser Humano e o Pecado",
+          "estimatedTime": "5 minutos",
+          "drops": [
+            {
+              "type": "gancho",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Pedro acorda cedo em Nampula. No caminho para a escola, vê crianças pedindo comida, ouve vizinhos discutindo... 😔",
+                  "delay": 0
+                },
+                {
+                  "text": "À noite, houve mais um roubo. Em casa, ele mesmo mente para a mãe.",
+                  "delay": 2000
+                },
+                {
+                  "text": "Ele pensa: 'Por que o mundo é assim? Por que EU faço o que sei que está errado?' 💭",
+                  "delay": 4000
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Boa pergunta..."
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Antes de falar do problema, vamos lembrar: **você tem dignidade**!",
+                  "delay": 0
+                },
+                {
+                  "text": "**'Criou Deus o homem à sua imagem; à imagem de Deus o criou'** (Gênesis 1:27)",
+                  "delay": 1500
+                },
+                {
+                  "text": "Você não é lixo. Não é acidente. Foi criado com **propósito** e **valor**! ✨",
+                  "delay": 3000
+                },
+                {
+                  "text": "Mas... algo foi quebrado. Algo entrou no mundo que distorceu tudo.",
+                  "delay": 4500
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "O que aconteceu?"
+              },
+              "xp": 5
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Deus deu ao primeiro homem e mulher tudo o que precisavam. Mas eles **escolheram desobedecer**.",
+                  "delay": 0
+                },
+                {
+                  "text": "Quiseram ser 'senhores de si mesmos', decidindo o bem e o mal **sem Deus**.",
+                  "delay": 2000
+                },
+                {
+                  "text": "**'Por um homem entrou o pecado no mundo, e pelo pecado a morte'** (Romanos 5:12)",
+                  "delay": 4000
+                },
+                {
+                  "text": "O pecado entrou... e trouxe morte, dor e separação de Deus. 💔",
+                  "delay": 5500
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Entendo..."
+              },
+              "xp": 5
+            },
+            {
+              "type": "reflexao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Isso afetou toda a humanidade. A Bíblia diz:",
+                  "delay": 0
+                },
+                {
+                  "text": "**'Todos pecaram e destituídos estão da glória de Deus'** (Romanos 3:23)",
+                  "delay": 1500
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "O que isso significa sobre nós?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Não somos apenas 'bons com alguns erros' - somos pecadores que precisam de perdão",
+                    "correct": true,
+                    "feedback": "Exatamente! 🎯 Precisamos reconhecer nossa real condição para buscar o Salvador!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Somos basicamente bons, só cometemos errinhos",
+                    "correct": false,
+                    "feedback": "A Bíblia mostra que o problema é mais profundo. Todos pecaram. 💭"
+                  },
+                  {
+                    "id": "c",
+                    "text": "O problema está só 'lá fora', não em mim",
+                    "correct": false,
+                    "feedback": "O pecado está em TODOS nós, não apenas nos outros. Isso é importante! 💡"
+                  }
+                ],
+                "xpCorrect": 10,
+                "xpIncorrect": 2
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "O pior efeito do pecado não é apenas a pobreza ou violência (embora sejam graves).",
+                  "delay": 0
+                },
+                {
+                  "text": "O pior é que **o pecado nos separa de Deus**. 😢",
+                  "delay": 2000
+                },
+                {
+                  "text": "**'As vossas iniquidades fazem divisão entre vós e o vosso Deus'** (Isaías 59:2)",
+                  "delay": 3500
+                },
+                {
+                  "text": "Sem Deus, caminhamos em trevas, confusão e culpa.",
+                  "delay": 5000
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Isso é sério..."
+              },
+              "xp": 5
+            },
+            {
+              "type": "reflexao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "A Bíblia nos alerta:",
+                  "delay": 0
+                },
+                {
+                  "text": "**'O salário do pecado é a morte'** (Romanos 6:23)",
+                  "delay": 1500
+                },
+                {
+                  "text": "'Salário' é o que recebemos como pagamento. O que o pecado merece é morte.",
+                  "delay": 3000
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "Por que Deus leva o pecado tão a sério?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Porque Ele é santo e justo - não pode simplesmente ignorar o mal",
+                    "correct": true,
+                    "feedback": "Correto! 🎉 Deus é amor, mas também é justo. O pecado ofende Sua santidade!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Porque Ele é exigente demais",
+                    "correct": false,
+                    "feedback": "Não é exigência, é santidade! Deus odeia o pecado porque nos destrói. 💭"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Na verdade, Deus não se importa muito com pecado",
+                    "correct": false,
+                    "feedback": "Deus Se importa muito! O pecado separa de Deus e destrói. É gravíssimo. 💡"
+                  }
+                ],
+                "xpCorrect": 10,
+                "xpIncorrect": 2
+              }
+            },
+            {
+              "type": "conceito",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Às vezes pensamos: 'O problema é o governo', 'é a pobreza', 'é o vizinho'...",
+                  "delay": 0
+                },
+                {
+                  "text": "Mas a Bíblia aponta para algo mais profundo:",
+                  "delay": 2000
+                },
+                {
+                  "text": "**'Enganoso é o coração, mais do que todas as coisas'** (Jeremias 17:9)",
+                  "delay": 3500
+                },
+                {
+                  "text": "O problema está **no coração humano**. Precisamos de transformação que só Deus pode fazer! 💙",
+                  "delay": 5000
+                }
+              ],
+              "interaction": {
+                "type": "continue",
+                "button": "Preciso dessa transformação"
+              },
+              "xp": 5
+            },
+            {
+              "type": "acao",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Momento de honestidade... 🎯",
+                  "delay": 0
+                },
+                {
+                  "text": "Reconhecer o pecado não é o fim. É o **começo** do caminho para salvação!",
+                  "delay": 1500
+                }
+              ],
+              "interaction": {
+                "type": "quiz",
+                "question": "O que devo fazer com meu pecado?",
+                "options": [
+                  {
+                    "id": "a",
+                    "text": "Reconhecer diante de Deus - não minimizar nem justificar",
+                    "correct": true,
+                    "feedback": "Perfeito! 🔥 Reconhecer é o primeiro passo. Deus pode transformar corações honestos!"
+                  },
+                  {
+                    "id": "b",
+                    "text": "Apenas comparar com pecados piores dos outros",
+                    "correct": false,
+                    "feedback": "Não! Você é responsável pelos SEUS pecados diante de Deus. Seja honesto! 💪"
+                  },
+                  {
+                    "id": "c",
+                    "text": "Esconder e tentar me virar sozinho",
+                    "correct": false,
+                    "feedback": "Não conseguimos nos salvar sozinhos! Precisamos de um Salvador. 🙏"
+                  }
+                ],
+                "xpCorrect": 15,
+                "xpIncorrect": 3
+              }
+            },
+            {
+              "type": "reforco",
+              "sender": "professor",
+              "messages": [
+                {
+                  "text": "Você completou uma lição difícil, mas essencial! 🎊",
+                  "delay": 0
+                },
+                {
+                  "text": "Sim, somos pecadores. Mas essa não é a última palavra! 💡",
+                  "delay": 1500
+                },
+                {
+                  "text": "Romanos 6:23 continua: **'mas o dom gratuito de Deus é a vida eterna, por Cristo Jesus'**",
+                  "delay": 3000
+                },
+                {
+                  "text": "Entender o pecado nos prepara para entender a **cruz**. Há esperança! ✨",
+                  "delay": 4500
+                },
+                {
+                  "text": "Na próxima lição: Jesus Cristo, o Salvador! 🙏",
+                  "delay": 6000
+                }
+              ],
+              "interaction": {
+                "type": "complete",
+                "button": "Continuar aprendendo",
+                "bonusXP": 25
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "schema": "conversational-learning",
+    "source": "Fundamentos da Fé Cristã - Apostila Narrativa Volume 1",
+    "context": "Moçambique",
+    "description": "Curso de micro-learning sobre fundamentos da fé cristã"
+  }
+}

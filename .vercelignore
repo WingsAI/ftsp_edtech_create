@@ -1,0 +1,8 @@
+.git
+.gitignore
+.vscode
+*.md
+!README.md
+content-template.md
+GUIA-RAPIDO.md
+README-FE-CRISTA.md
