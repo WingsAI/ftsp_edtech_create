@@ -15,7 +15,7 @@
                 extend: {
                     colors: {
                         'moz-green': '#2E7D32',
-                        'moz-yellow': '#FFF59D',
+                        'moz-yellow': '#FDD835',
                         'moz-red': '#EF9A9A',
                         'brutal-bg': '#FAFAFA',
                     }
@@ -102,7 +102,7 @@
                 O conteúdo será salvo no seu navegador e usado no webapp.
             </p>
             <div class="bg-moz-yellow border-4 border-black p-4 inline-block">
-                <p class="font-bold">📝 Máximo: 1000 caracteres | 💾 Salvo automaticamente</p>
+                <p class="font-bold">📝 Máximo: 10000 caracteres | 💾 Salvo automaticamente</p>
             </div>
         </div>
 
@@ -114,7 +114,7 @@
             <div class="flex justify-between items-center mb-4">
                 <h3 class="font-brutal text-2xl">SEU CONTEÚDO</h3>
                 <div class="char-counter font-mono text-lg">
-                    <span id="charCount">0</span> / 1000
+                    <span id="charCount">0</span> / 10000
                 </div>
             </div>
 
@@ -137,21 +137,21 @@ Aqui você explica o conceito principal
 Use **negrito** para destacar palavras-chave
 Pode usar emojis também! 💡
 BOTÃO: Entendi!
-XP: 5
+PONTOS: 5
 
 [QUIZ]
 PERGUNTA: Qual a resposta correta?
 A) Primeira opção | CORRETO | Parabéns! Você acertou! 🎉
 B) Segunda opção | ERRADO | Tente novamente! 💪
 C) Terceira opção | ERRADO | Quase lá! Continue tentando! 💡
-XP_CORRETO: 10
-XP_ERRADO: 2
+PONTOS_CORRETO: 10
+PONTOS_ERRADO: 2
 
 [REFORÇO]
 Parabéns! Você completou a lição! 🎊
 Continue assim e você vai longe!
 BOTÃO: Finalizar
-XP_BONUS: 20" maxlength="1000"></textarea>
+PONTOS_BONUS: 20" maxlength="10000"></textarea>
 
             <div class="mt-4 flex flex-wrap gap-4">
                 <button onclick="clearContent()"
@@ -211,7 +211,7 @@ XP_BONUS: 20" maxlength="1000"></textarea>
             const count = textarea.value.length;
             charCount.textContent = count;
 
-            if (count > 900) {
+            if (count > 9000) {
                 charCount.parentElement.classList.add('warning');
             } else {
                 charCount.parentElement.classList.remove('warning');
@@ -294,10 +294,10 @@ XP_BONUS: 20" maxlength="1000"></textarea>
 
                 if (line.startsWith('BOTÃO:')) {
                     button = line.replace('BOTÃO:', '').trim();
-                } else if (line.startsWith('XP:')) {
-                    xp = parseInt(line.replace('XP:', '').trim());
-                } else if (line.startsWith('XP_BONUS:')) {
-                    bonusXP = parseInt(line.replace('XP_BONUS:', '').trim());
+                } else if (line.startsWith('PONTOS:')) {
+                    xp = parseInt(line.replace('PONTOS:', '').trim());
+                } else if (line.startsWith('PONTOS_BONUS:')) {
+                    bonusXP = parseInt(line.replace('PONTOS_BONUS:', '').trim());
                 } else if (line) {
                     messages.push(line);
                 }
@@ -342,10 +342,10 @@ XP_BONUS: 20" maxlength="1000"></textarea>
 
                 if (line.startsWith('PERGUNTA:')) {
                     question = line.replace('PERGUNTA:', '').trim();
-                } else if (line.startsWith('XP_CORRETO:')) {
-                    xpCorrect = parseInt(line.replace('XP_CORRETO:', '').trim());
-                } else if (line.startsWith('XP_ERRADO:')) {
-                    xpIncorrect = parseInt(line.replace('XP_ERRADO:', '').trim());
+                } else if (line.startsWith('PONTOS_CORRETO:')) {
+                    xpCorrect = parseInt(line.replace('PONTOS_CORRETO:', '').trim());
+                } else if (line.startsWith('PONTOS_ERRADO:')) {
+                    xpIncorrect = parseInt(line.replace('PONTOS_ERRADO:', '').trim());
                 } else if (line.match(/^[ABC]\)/)) {
                     const parts = line.split('|').map(p => p.trim());
                     const optionText = parts[0].substring(3).trim();
@@ -393,8 +393,8 @@ XP_BONUS: 20" maxlength="1000"></textarea>
                 return;
             }
 
-            if (text.length > 1000) {
-                showAlert('❌ Texto muito longo! Máximo: 1000 caracteres', 'error');
+            if (text.length > 10000) {
+                showAlert('❌ Texto muito longo! Máximo: 10000 caracteres', 'error');
                 return;
             }
 
@@ -455,22 +455,22 @@ A Bíblia diz: **"Porque Deus amou o mundo de tal maneira que deu o seu Filho"**
 Deus não apenas diz que te ama. Ele PROVOU com ação! ✝️
 Enquanto ainda éramos pecadores, Cristo morreu por nós.
 BOTÃO: Que amor incrível!
-XP: 5
+PONTOS: 5
 
 [QUIZ]
 PERGUNTA: Como Deus demonstrou Seu amor?
 A) Enviando Jesus para morrer por nós | CORRETO | Exatamente! Esse é o maior ato de amor da história! 🎉
 B) Apenas dizendo palavras bonitas | ERRADO | O amor de Deus é ação, não só palavras! Releia João 3:16 💡
 C) Dando bens materiais | ERRADO | O maior presente foi Jesus, não coisas! 💙
-XP_CORRETO: 10
-XP_ERRADO: 2
+PONTOS_CORRETO: 10
+PONTOS_ERRADO: 2
 
 [REFORÇO]
 Você completou esta lição! 🎊
 Nunca esqueça: Deus te ama tanto que deu Jesus!
 Isso muda tudo! 💙✝️
 BOTÃO: Amém!
-XP_BONUS: 20`;
+PONTOS_BONUS: 20`;
 
             charCount.textContent = textarea.value.length;
             generatePreview();

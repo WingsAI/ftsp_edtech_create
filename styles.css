@@ -8,7 +8,7 @@
 :root {
     /* Cores de Moçambique - Suavizadas */
     --moz-green: #2E7D32;
-    --moz-yellow: #FFF59D;
+    --moz-yellow: #FDD835;
     --moz-red: #EF9A9A;
     --moz-black: #1a1a1a;
 
@@ -392,8 +392,15 @@ body {
 }
 
 @keyframes fire-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 /* Loading dots - Static */

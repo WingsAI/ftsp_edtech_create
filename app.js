@@ -43,8 +43,8 @@ const Storage = {
         const diffDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
 
         if (diffDays > 1) {
-            AppState.streak = 0; // Perdeu a streak
-            showToast('😢 Você perdeu sua ofensiva! Vamos recomeçar!', 'error');
+            AppState.streak = 0; // Perdeu a sequência
+            showToast('😢 Você perdeu sua sequência! Vamos recomeçar!', 'error');
         } else if (diffDays === 1) {
             // Continuou a streak (será incrementada ao completar lição)
         }
@@ -60,7 +60,7 @@ const Storage = {
             this.save();
 
             if (AppState.streak >= 3) {
-                showToast(`🔥 Ofensiva de ${AppState.streak} dias! Continue assim!`, 'success');
+                showToast(`🔥 Sequência de ${AppState.streak} dias! Continue assim!`, 'success');
             }
         }
     }
@@ -189,7 +189,7 @@ function showToast(message, type = 'success') {
 }
 
 function showXPGain(amount) {
-    showToast(`+${amount} XP! ⭐`, 'xp-gain');
+    showToast(`+${amount} Pontos! ⭐`, 'xp-gain');
     AppState.xp += amount;
     UI.updateStats();
     Storage.save();
@@ -311,7 +311,7 @@ class LessonRunner {
 
                     // Modo "Em Chamas" - 5 acertos seguidos
                     if (AppState.consecutiveCorrect >= 5 && AppState.consecutiveCorrect % 5 === 0) {
-                        showToast('🔥 MODO EM CHAMAS! XP em dobro nas próximas!', 'success');
+                        showToast('🔥 MODO EM CHAMAS! Pontos em dobro nas próximas!', 'success');
                     }
                 } else {
                     optionBtn.classList.add('incorrect');
