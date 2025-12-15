@@ -257,7 +257,12 @@ class LessonRunner {
                 break;
 
             case 'complete':
-                const completeBtn = UI.createButton(interaction.button, () => {
+                const completeBtn = UI.createButton(interaction.button, (e) => {
+                    // Prevent multiple clicks
+                    if (e.target.disabled) return;
+                    e.target.disabled = true;
+                    e.target.textContent = 'Carregando...';
+
                     showXPGain(interaction.bonusXP);
                     Storage.updateStreak();
                     UI.updateStats();
