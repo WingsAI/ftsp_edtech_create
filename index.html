@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,15 +23,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'moz-green': '#009639',
-                        'moz-yellow': '#FCE100',
-                        'moz-red': '#D21034',
-                        'moz-black': '#000000',
-                        'brutal-bg': '#FFFEF2',
+                        'moz-green': '#2E7D32',
+                        'moz-yellow': '#FFF59D',
+                        'moz-red': '#EF9A9A',
+                        'moz-black': '#1a1a1a',
+                        'brutal-bg': '#FAFAFA',
                         'brutal-shadow': '#000000',
                     },
                     fontFamily: {
-                        'brutal': ['Impact', 'Arial Black', 'sans-serif'],
+                        'brutal': ['Arial', 'sans-serif'],
                         'mono': ['Courier New', 'monospace'],
                     },
                 }
@@ -41,128 +42,79 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #FFFEF2;
+            font-family: 'Arial', sans-serif;
+            background: #FAFAFA;
         }
 
         .font-brutal {
-            font-family: 'Space Grotesk', Impact, sans-serif;
-            font-weight: 700;
+            font-family: 'Arial', sans-serif;
+            font-weight: 400;
         }
 
         .font-mono {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Courier New', monospace;
         }
 
-        /* Neobrutalist Shadow */
+        /* Neobrutalist Shadow - Modified to be Static & Rounded */
         .neo-brutal {
-            border: 4px solid #000;
-            box-shadow: 8px 8px 0px #000;
-            transition: all 0.2s ease;
+            border: 2px solid #1a1a1a;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
         }
 
         .neo-brutal:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 4px 4px 0px #000;
+            /* No movement */
         }
 
         .neo-brutal-xl {
-            border: 6px solid #000;
-            box-shadow: 12px 12px 0px #000;
+            border: 2px solid #1a1a1a;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
         }
 
         .neo-brutal-xl:hover {
-            transform: translate(6px, 6px);
-            box-shadow: 6px 6px 0px #000;
+            /* No movement */
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes rotate-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse-border {
-            0%, 100% { border-width: 4px; }
-            50% { border-width: 6px; }
-        }
+        /* Animations Removed */
 
         .float-animation {
-            animation: float 3s ease-in-out infinite;
+            /* Static */
         }
 
         .rotate-slow {
-            animation: rotate-slow 20s linear infinite;
+            /* Static */
         }
 
-        /* Scroll Reveal */
+        /* Scroll Reveal - Forced Visible */
         .scroll-reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 1;
+            transform: none;
         }
 
         .scroll-reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
 
-        /* Glitch Effect */
+        /* Glitch Effect Removed */
         .glitch {
             position: relative;
         }
 
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 #D21034;
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim 3s infinite linear alternate-reverse;
-        }
-
-        .glitch::after {
-            left: -2px;
-            text-shadow: -2px 0 #009639;
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim 2s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% { clip: rect(61px, 9999px, 90px, 0); }
-            20% { clip: rect(84px, 9999px, 78px, 0); }
-            40% { clip: rect(20px, 9999px, 56px, 0); }
-            60% { clip: rect(47px, 9999px, 34px, 0); }
-            80% { clip: rect(88px, 9999px, 12px, 0); }
-            100% { clip: rect(55px, 9999px, 67px, 0); }
-        }
-
         /* Stripe Pattern */
         .stripe-pattern {
-            background-image: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(0, 0, 0, 0.05) 10px,
-                rgba(0, 0, 0, 0.05) 20px
-            );
+            background-image: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(0, 0, 0, 0.05) 10px,
+                    rgba(0, 0, 0, 0.05) 20px);
         }
 
         /* Cross Pattern */
@@ -176,17 +128,16 @@
         /* Moz Flag Pattern */
         .moz-flag {
             background: linear-gradient(to bottom,
-                #009639 0%,
-                #009639 33.33%,
-                #000000 33.33%,
-                #000000 36.66%,
-                #FCE100 36.66%,
-                #FCE100 63.33%,
-                #000000 63.33%,
-                #000000 66.66%,
-                #009639 66.66%,
-                #009639 100%
-            );
+                    #009639 0%,
+                    #009639 33.33%,
+                    #000000 33.33%,
+                    #000000 36.66%,
+                    #FCE100 36.66%,
+                    #FCE100 63.33%,
+                    #000000 63.33%,
+                    #000000 66.66%,
+                    #009639 66.66%,
+                    #009639 100%);
         }
 
         /* Sticky Navigation */
@@ -209,6 +160,7 @@
         }
     </style>
 </head>
+
 <body class="bg-brutal-bg overflow-x-hidden">
 
     <!-- VERSION: 2024-NEOBRUTALIST-MOZAMBIQUE -->
@@ -221,7 +173,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-moz-yellow border-4 border-black rotate-12 flex items-center justify-center font-brutal text-2xl">
+                    <div
+                        class="w-12 h-12 bg-moz-yellow border-2 border-black rounded-xl flex items-center justify-center font-brutal text-2xl">
                         ✝
                     </div>
                     <h1 class="font-brutal text-white text-2xl md:text-3xl">
@@ -229,16 +182,18 @@
                     </h1>
                 </div>
                 <div class="hidden md:flex space-x-6">
-                    <a href="#sobre" class="text-white font-bold hover:text-moz-yellow transition">SOBRE</a>
-                    <a href="#licoes" class="text-white font-bold hover:text-moz-yellow transition">LIÇÕES</a>
-                    <a href="content-creator.html" class="text-white font-bold hover:text-moz-yellow transition">✍️ CRIAR</a>
-                    <a href="#comecar" class="bg-moz-red text-white px-6 py-2 border-4 border-black font-brutal hover:bg-moz-yellow hover:text-black transition">
+                    <a href="#sobre" class="text-white hover:text-moz-yellow transition">SOBRE</a>
+                    <a href="#licoes" class="text-white hover:text-moz-yellow transition">LIÇÕES</a>
+                    <a href="content-creator.html" class="text-white hover:text-moz-yellow transition">✍️ CRIAR</a>
+                    <a href="#comecar"
+                        class="bg-moz-red text-white px-6 py-2 border-2 border-black rounded-lg font-brutal hover:bg-moz-yellow hover:text-black">
                         COMEÇAR
                     </a>
                 </div>
                 <button id="mobileMenuBtn" class="md:hidden text-white">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -247,10 +202,12 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-black border-t-4 border-white">
             <div class="px-4 py-4 space-y-3">
-                <a href="#sobre" class="block text-white font-bold hover:text-moz-yellow">SOBRE</a>
-                <a href="#licoes" class="block text-white font-bold hover:text-moz-yellow">LIÇÕES</a>
-                <a href="content-creator.html" class="block text-white font-bold hover:text-moz-yellow">✍️ CRIAR CONTEÚDO</a>
-                <a href="#comecar" class="block bg-moz-red text-white px-6 py-3 border-4 border-white font-brutal text-center">
+                <a href="#sobre" class="block text-white hover:text-moz-yellow">SOBRE</a>
+                <a href="#licoes" class="block text-white hover:text-moz-yellow">LIÇÕES</a>
+                <a href="content-creator.html" class="block text-white hover:text-moz-yellow">✍️ CRIAR
+                    CONTEÚDO</a>
+                <a href="#comecar"
+                    class="block bg-moz-red text-white px-6 py-3 border-2 border-white font-brutal text-center">
                     COMEÇAR
                 </a>
             </div>
@@ -259,10 +216,12 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-20 cross-pattern">
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-moz-yellow border-4 border-black rotate-12 float-animation"></div>
-        <div class="absolute top-40 right-20 w-32 h-32 bg-moz-red border-4 border-black rounded-full float-animation" style="animation-delay: 0.5s;"></div>
-        <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-moz-green border-4 border-black float-animation" style="animation-delay: 1s;"></div>
+        <!-- Floating Elements (Static) -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-moz-yellow border-2 border-black rounded-full opacity-50">
+        </div>
+        <div class="absolute top-40 right-20 w-32 h-32 bg-moz-red border-2 border-black rounded-full opacity-50"></div>
+        <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-moz-green border-2 border-black rounded-full opacity-50">
+        </div>
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center scroll-reveal">
@@ -272,19 +231,19 @@
                 </h1>
 
                 <!-- Subtitle -->
-                <div class="inline-block bg-black text-white px-8 py-4 border-4 border-black neo-brutal mb-8">
+                <div class="inline-block bg-black text-white px-8 py-4 border-2 border-black neo-brutal mb-8">
                     <p class="font-mono text-xl md:text-2xl">
                         📖 APRENDA. 💬 CONVERSE. ✨ CRESÇA.
                     </p>
                 </div>
 
                 <!-- Description Box -->
-                <div class="max-w-2xl mx-auto bg-white border-6 border-black neo-brutal-xl p-8 mb-12">
-                    <p class="text-xl md:text-2xl font-bold mb-4">
+                <div class="max-w-2xl mx-auto bg-white border-2 border-black neo-brutal-xl p-8 mb-12">
+                    <p class="text-xl md:text-2xl mb-4">
                         Descubra os fundamentos da fé cristã de forma
-                        <span class="bg-moz-yellow px-2 py-1 border-2 border-black">CONVERSACIONAL</span>,
-                        <span class="bg-moz-green text-white px-2 py-1 border-2 border-black">BÍBLICA</span> e
-                        <span class="bg-moz-red text-white px-2 py-1 border-2 border-black">PRÁTICA</span>
+                        <span class="bg-moz-yellow px-2 py-1 rounded border border-black">CONVERSACIONAL</span>,
+                        <span class="bg-moz-green text-white px-2 py-1 rounded border border-black">BÍBLICA</span> e
+                        <span class="bg-moz-red text-white px-2 py-1 rounded border border-black">PRÁTICA</span>
                     </p>
                     <p class="text-lg text-gray-700">
                         Micro-learning de 3-5 minutos | Contexto Moçambique 🇲🇿
@@ -293,27 +252,29 @@
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="webapp.html" class="bg-moz-red text-white px-12 py-6 border-6 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-yellow hover:text-black">
+                    <a href="webapp.html"
+                        class="bg-moz-red text-white px-12 py-6 border-2 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-yellow hover:text-black">
                         🚀 COMEÇAR AGORA
                     </a>
-                    <a href="#sobre" class="bg-white text-black px-12 py-6 border-6 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-green hover:text-white">
+                    <a href="#sobre"
+                        class="bg-white text-black px-12 py-6 border-2 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-green hover:text-white">
                         📚 SABER MAIS
                     </a>
                 </div>
 
                 <!-- Stats -->
                 <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-16">
-                    <div class="bg-moz-yellow border-4 border-black p-6 neo-brutal">
+                    <div class="bg-moz-yellow border-2 border-black p-6 neo-brutal">
                         <div class="font-brutal text-4xl mb-2">2</div>
-                        <div class="font-bold">LIÇÕES</div>
+                        <div>LIÇÕES</div>
                     </div>
-                    <div class="bg-moz-green text-white border-4 border-black p-6 neo-brutal">
+                    <div class="bg-moz-green text-white border-2 border-black p-6 neo-brutal">
                         <div class="font-brutal text-4xl mb-2">4-5</div>
-                        <div class="font-bold">MINUTOS</div>
+                        <div>MINUTOS</div>
                     </div>
-                    <div class="bg-moz-red text-white border-4 border-black p-6 neo-brutal">
+                    <div class="bg-moz-red text-white border-2 border-black p-6 neo-brutal">
                         <div class="font-brutal text-4xl mb-2">100%</div>
-                        <div class="font-bold">GRÁTIS</div>
+                        <div>GRÁTIS</div>
                     </div>
                 </div>
             </div>
@@ -324,45 +285,50 @@
     <section id="sobre" class="py-20 bg-white stripe-pattern">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
-                <h2 class="font-brutal text-5xl md:text-7xl mb-6 inline-block border-8 border-black bg-moz-yellow px-8 py-4">
+                <h2
+                    class="font-brutal text-5xl md:text-7xl mb-6 inline-block border-2 border-black bg-moz-yellow px-8 py-4">
                     POR QUE CONVERSALEARN?
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Feature 1 -->
-                <div class="bg-moz-green text-white border-6 border-black neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-moz-green text-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">💬</div>
                     <h3 class="font-brutal text-3xl mb-4">CONVERSACIONAL</h3>
                     <p class="text-lg leading-relaxed">
-                        Não é um livro digital chato! É uma <strong>conversa real</strong> com um professor virtual que guia você passo a passo. Como no WhatsApp, mas para aprender sobre Deus!
+                        Não é um livro digital chato! É uma conversa real com um professor virtual que
+                        guia você passo a passo. Como no WhatsApp, mas para aprender sobre Deus!
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-moz-red text-white border-6 border-black neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-moz-red text-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">⏱️</div>
                     <h3 class="font-brutal text-3xl mb-4">MICRO-LEARNING</h3>
                     <p class="text-lg leading-relaxed">
-                        Apenas <strong>3-5 minutos</strong> por lição! Perfeito para você que tem uma vida ocupada mas quer crescer na fé. Estude no ônibus, na pausa do trabalho, em qualquer lugar!
+                        Apenas <strong>3-5 minutos</strong> por lição! Perfeito para você que tem uma vida ocupada mas
+                        quer crescer na fé. Estude no ônibus, na pausa do trabalho, em qualquer lugar!
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-moz-yellow border-6 border-black neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-moz-yellow border-2 border-black neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">🎮</div>
                     <h3 class="font-brutal text-3xl mb-4">GAMIFICAÇÃO</h3>
                     <p class="text-lg leading-relaxed">
-                        Ganhe <strong>XP</strong>, mantenha sua <strong>streak</strong>, desbloqueie conquistas! O aprendizado fica divertido e você quer continuar voltando todos os dias!
+                        Ganhe <strong>XP</strong>, mantenha sua <strong>streak</strong>, desbloqueie conquistas! O
+                        aprendizado fica divertido e você quer continuar voltando todos os dias!
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-black text-white border-6 border-moz-green neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-black text-white border-2 border-moz-green neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">🇲🇿</div>
                     <h3 class="font-brutal text-3xl mb-4">CONTEXTO MOÇAMBIQUE</h3>
                     <p class="text-lg leading-relaxed">
-                        Histórias de <strong>Maria em Nampula</strong>, <strong>Pedro buscando água</strong>... Conteúdo que fala com VOCÊ, na SUA realidade, com os SEUS desafios!
+                        Histórias de <strong>Maria em Nampula</strong>, <strong>Pedro buscando água</strong>... Conteúdo
+                        que fala com VOCÊ, na SUA realidade, com os SEUS desafios!
                     </p>
                 </div>
             </div>
@@ -373,7 +339,7 @@
     <section id="licoes" class="py-20 bg-brutal-bg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
-                <div class="inline-block bg-moz-red text-white px-8 py-4 border-6 border-black mb-6">
+                <div class="inline-block bg-moz-red text-white px-8 py-4 border-2 border-black mb-6">
                     <span class="font-mono text-xl">📚 VOLUME 1</span>
                 </div>
                 <h2 class="font-brutal text-5xl md:text-7xl mb-6">
@@ -383,10 +349,12 @@
 
             <div class="space-y-8">
                 <!-- Lesson 1 -->
-                <div class="bg-white border-6 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
+                <div
+                    class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div class="flex-1">
-                            <div class="inline-block bg-moz-green text-white px-4 py-2 border-4 border-black font-brutal mb-4">
+                            <div
+                                class="inline-block bg-moz-green text-white px-4 py-2 border-2 border-black font-brutal mb-4">
                                 LIÇÃO 01
                             </div>
                             <h3 class="font-brutal text-3xl md:text-4xl mb-4">QUEM É DEUS?</h3>
@@ -395,45 +363,54 @@
                                 Descubra quem é o Criador, como é Seu caráter e por que isso muda TUDO na sua vida.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 4 min</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖 Gênesis 1:1</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 80 XP</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 4
+                                    min</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖
+                                    Gênesis 1:1</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 80
+                                    XP</span>
                             </div>
                         </div>
-                        <div class="bg-moz-red text-white px-8 py-4 border-4 border-black font-brutal text-xl">
+                        <div class="bg-moz-red text-white px-8 py-4 border-2 border-black font-brutal text-xl">
                             COMEÇAR →
                         </div>
                     </div>
                 </div>
 
                 <!-- Lesson 2 -->
-                <div class="bg-white border-6 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
+                <div
+                    class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div class="flex-1">
-                            <div class="inline-block bg-moz-green text-white px-4 py-2 border-4 border-black font-brutal mb-4">
+                            <div
+                                class="inline-block bg-moz-green text-white px-4 py-2 border-2 border-black font-brutal mb-4">
                                 LIÇÃO 02
                             </div>
                             <h3 class="font-brutal text-3xl md:text-4xl mb-4">O SER HUMANO E O PECADO</h3>
                             <p class="text-lg mb-4">
                                 Pedro vê injustiça ao seu redor e até ele mesmo faz o errado.
-                                Por que o mundo é assim? O que é pecado? Há esperança? Uma lição honesta e transformadora.
+                                Por que o mundo é assim? O que é pecado? Há esperança? Uma lição honesta e
+                                transformadora.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 5 min</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖 Romanos 3:23</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 90 XP</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 5
+                                    min</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖
+                                    Romanos 3:23</span>
+                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 90
+                                    XP</span>
                             </div>
                         </div>
-                        <div class="bg-moz-red text-white px-8 py-4 border-4 border-black font-brutal text-xl">
+                        <div class="bg-moz-red text-white px-8 py-4 border-2 border-black font-brutal text-xl">
                             COMEÇAR →
                         </div>
                     </div>
                 </div>
 
                 <!-- Coming Soon -->
-                <div class="bg-gray-200 border-6 border-black p-8 scroll-reveal opacity-60">
+                <div class="bg-gray-200 border-2 border-black p-8 scroll-reveal opacity-60">
                     <div class="text-center">
-                        <div class="inline-block bg-black text-white px-6 py-3 border-4 border-black font-brutal mb-4">
+                        <div class="inline-block bg-black text-white px-6 py-3 border-2 border-black font-brutal mb-4">
                             EM BREVE
                         </div>
                         <h3 class="font-brutal text-2xl md:text-3xl mb-2">JESUS CRISTO, O SALVADOR</h3>
@@ -454,7 +431,8 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center scroll-reveal">
-                    <div class="w-24 h-24 bg-moz-yellow border-6 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+                    <div
+                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
                         1
                     </div>
                     <h3 class="font-brutal text-3xl mb-4">LEIA</h3>
@@ -464,7 +442,8 @@
                 </div>
 
                 <div class="text-center scroll-reveal">
-                    <div class="w-24 h-24 bg-moz-yellow border-6 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+                    <div
+                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
                         2
                     </div>
                     <h3 class="font-brutal text-3xl mb-4">RESPONDA</h3>
@@ -474,7 +453,8 @@
                 </div>
 
                 <div class="text-center scroll-reveal">
-                    <div class="w-24 h-24 bg-moz-yellow border-6 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+                    <div
+                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
                         3
                     </div>
                     <h3 class="font-brutal text-3xl mb-4">CRESÇA</h3>
@@ -497,26 +477,27 @@
                     Quer ensinar sua própria lição? É simples e rápido!
                 </p>
 
-                <div class="bg-black text-white border-6 border-black neo-brutal p-8 mb-8 max-w-3xl mx-auto">
+                <div class="bg-black text-white border-2 border-black neo-brutal p-8 mb-8 max-w-3xl mx-auto">
                     <div class="grid md:grid-cols-3 gap-6 mb-6">
                         <div class="text-center">
                             <div class="text-5xl mb-2">📝</div>
-                            <p class="font-bold">Cole seu texto</p>
+                            <p>Cole seu texto</p>
                             <p class="text-sm text-gray-400">Até 1000 caracteres</p>
                         </div>
                         <div class="text-center">
                             <div class="text-5xl mb-2">🔄</div>
-                            <p class="font-bold">Auto-conversão</p>
+                            <p>Auto-conversão</p>
                             <p class="text-sm text-gray-400">Vira JSON na hora</p>
                         </div>
                         <div class="text-center">
                             <div class="text-5xl mb-2">💾</div>
-                            <p class="font-bold">Salva no cache</p>
+                            <p>Salva no cache</p>
                             <p class="text-sm text-gray-400">Usa no webapp</p>
                         </div>
                     </div>
 
-                    <a href="content-creator.html" class="inline-block bg-moz-red text-white px-12 py-6 border-6 border-white neo-brutal font-brutal text-2xl hover:bg-white hover:text-black">
+                    <a href="content-creator.html"
+                        class="inline-block bg-moz-red text-white px-12 py-6 border-2 border-white neo-brutal font-brutal text-2xl hover:bg-white hover:text-black">
                         🚀 CRIAR AGORA
                     </a>
                 </div>
@@ -538,20 +519,21 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white border-6 border-black neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">📖</div>
                     <h3 class="font-brutal text-2xl mb-4">SOLA SCRIPTURA</h3>
-                    <p class="text-lg italic mb-4">
+                    <p class="text-lg leading-relaxed">
                         "Santifica-os na verdade; a tua palavra é a verdade."
                     </p>
                     <p class="font-mono text-sm">— João 17:17</p>
                 </div>
 
-                <div class="bg-white border-6 border-black neo-brutal-xl p-8 scroll-reveal">
+                <div class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
                     <div class="text-6xl mb-4">✝️</div>
                     <h3 class="font-brutal text-2xl mb-4">SOLUS CHRISTUS</h3>
-                    <p class="text-lg italic mb-4">
-                        "E em nenhum outro há salvação, porque também debaixo do céu nenhum outro nome há, dado entre os homens, pelo qual devamos ser salvos."
+                    <p class="text-lg leading-relaxed">
+                        "E em nenhum outro há salvação, porque também debaixo do céu nenhum outro nome há, dado entre os
+                        homens, pelo qual devamos ser salvos."
                     </p>
                     <p class="font-mono text-sm">— Atos 4:12</p>
                 </div>
@@ -563,9 +545,11 @@
     <section id="comecar" class="py-32 bg-moz-red text-white relative overflow-hidden">
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-32 h-32 border-8 border-white rotate-12 float-animation"></div>
-            <div class="absolute top-1/4 right-20 w-40 h-40 border-8 border-white rounded-full float-animation" style="animation-delay: 0.5s;"></div>
-            <div class="absolute bottom-20 left-1/3 w-24 h-24 border-8 border-white rotate-45 float-animation" style="animation-delay: 1s;"></div>
+            <div class="absolute top-10 left-10 w-32 h-32 border-2 border-white rotate-12 float-animation"></div>
+            <div class="absolute top-1/4 right-20 w-40 h-40 border-2 border-white rounded-full float-animation"
+                style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-20 left-1/3 w-24 h-24 border-2 border-white rotate-45 float-animation"
+                style="animation-delay: 1s;"></div>
         </div>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-reveal">
@@ -576,7 +560,8 @@
                 Sua jornada nos fundamentos da fé cristã começa AGORA! 🚀
             </p>
 
-            <a href="webapp.html" class="inline-block bg-moz-yellow text-black px-16 py-8 border-8 border-black neo-brutal-xl font-brutal text-3xl hover:bg-white transition-colors">
+            <a href="webapp.html"
+                class="inline-block bg-moz-yellow text-black px-16 py-8 border-2 border-black neo-brutal-xl font-brutal text-3xl hover:bg-white transition-colors">
                 🎯 INICIAR LIÇÃO 1
             </a>
 
@@ -587,7 +572,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12 border-t-8 border-moz-yellow">
+    <footer class="bg-black text-white py-12 border-t-2 border-moz-yellow">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
@@ -624,7 +609,8 @@
                     &copy; 2025 ConversaLearn | Feito com ❤️ para a glória de Deus
                 </p>
                 <p class="text-gray-500 text-sm mt-2">
-                    "Porque dele e por ele, e para ele, são todas as coisas; glória, pois, a ele eternamente. Amém." - Romanos 11:36
+                    "Porque dele e por ele, e para ele, são todas as coisas; glória, pois, a ele eternamente. Amém." -
+                    Romanos 11:36
                 </p>
             </div>
         </div>
@@ -681,7 +667,7 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: 'auto',
                         block: 'start'
                     });
                 }
@@ -695,13 +681,10 @@
             });
         });
 
-        // Add random rotation to floating elements on load
         window.addEventListener('load', () => {
-            document.querySelectorAll('.float-animation').forEach(el => {
-                const randomRotation = Math.random() * 360;
-                el.style.transform = `rotate(${randomRotation}deg)`;
-            });
+            // Static elements, no loop
         });
     </script>
 </body>
+
 </html>

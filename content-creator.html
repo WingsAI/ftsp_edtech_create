@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,41 +14,42 @@
             theme: {
                 extend: {
                     colors: {
-                        'moz-green': '#009639',
-                        'moz-yellow': '#FCE100',
-                        'moz-red': '#D21034',
-                        'brutal-bg': '#FFFEF2',
+                        'moz-green': '#2E7D32',
+                        'moz-yellow': '#FFF59D',
+                        'moz-red': '#EF9A9A',
+                        'brutal-bg': '#FAFAFA',
                     }
                 }
             }
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         .font-brutal {
-            font-family: 'Space Grotesk', Impact, sans-serif;
-            font-weight: 700;
+            font-family: 'Arial', sans-serif;
+            font-weight: 400;
         }
 
         .font-mono {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Courier New', monospace;
         }
 
         .neo-brutal {
-            border: 4px solid #000;
-            box-shadow: 8px 8px 0px #000;
-            transition: all 0.2s ease;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
         }
 
         .neo-brutal:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 6px 6px 0px #000;
+            /* Static */
         }
 
         .char-counter {
@@ -58,28 +60,22 @@
             color: #D21034;
         }
 
+        /* Animation Removed */
         .pulse-animation {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: .5;
-            }
+            /* Static */
         }
     </style>
 </head>
+
 <body class="bg-brutal-bg">
 
     <!-- Navigation -->
-    <nav class="bg-moz-green border-b-6 border-black">
+    <nav class="bg-moz-green border-b-2 border-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-moz-yellow border-4 border-black rotate-12 flex items-center justify-center font-brutal text-2xl">
+                    <div
+                        class="w-12 h-12 bg-moz-yellow border-2 border-black rounded-xl flex items-center justify-center font-brutal text-2xl">
                         ✝
                     </div>
                     <h1 class="font-brutal text-white text-2xl md:text-3xl">
@@ -87,7 +83,7 @@
                     </h1>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="index.html" class="text-white font-bold hover:text-moz-yellow transition">
+                    <a href="index.html" class="text-white hover:text-moz-yellow">
                         ← VOLTAR
                     </a>
                 </div>
@@ -122,8 +118,7 @@
                 </div>
             </div>
 
-            <textarea
-                id="userContent"
+            <textarea id="userContent"
                 class="w-full h-64 p-4 border-4 border-black font-mono text-sm resize-none focus:outline-none focus:border-moz-green"
                 placeholder="Cole seu texto aqui...
 
@@ -156,17 +151,14 @@ XP_ERRADO: 2
 Parabéns! Você completou a lição! 🎊
 Continue assim e você vai longe!
 BOTÃO: Finalizar
-XP_BONUS: 20"
-                maxlength="1000"></textarea>
+XP_BONUS: 20" maxlength="1000"></textarea>
 
             <div class="mt-4 flex flex-wrap gap-4">
-                <button
-                    onclick="clearContent()"
+                <button onclick="clearContent()"
                     class="bg-gray-300 text-black px-6 py-3 border-4 border-black neo-brutal font-bold hover:bg-gray-400">
                     🗑️ LIMPAR
                 </button>
-                <button
-                    onclick="loadExample()"
+                <button onclick="loadExample()"
                     class="bg-moz-yellow text-black px-6 py-3 border-4 border-black neo-brutal font-bold hover:bg-yellow-300">
                     📄 CARREGAR EXEMPLO
                 </button>
@@ -176,20 +168,19 @@ XP_BONUS: 20"
         <!-- Preview Section -->
         <div class="bg-white border-6 border-black neo-brutal p-8 mb-8">
             <h3 class="font-brutal text-2xl mb-4">👁️ PREVIEW JSON</h3>
-            <pre id="jsonPreview" class="bg-black text-green-400 p-4 rounded font-mono text-xs overflow-x-auto h-64 overflow-y-auto">
+            <pre id="jsonPreview"
+                class="bg-black text-green-400 p-4 rounded font-mono text-xs overflow-x-auto h-64 overflow-y-auto">
 // Cole texto acima e veja o JSON gerado aqui...
             </pre>
         </div>
 
         <!-- Actions -->
         <div class="grid md:grid-cols-2 gap-6">
-            <button
-                onclick="saveToCache()"
+            <button onclick="saveToCache()"
                 class="bg-moz-green text-white px-8 py-6 border-6 border-black neo-brutal font-brutal text-2xl hover:bg-green-700">
                 💾 SALVAR NO CACHE
             </button>
-            <button
-                onclick="testInApp()"
+            <button onclick="testInApp()"
                 class="bg-moz-red text-white px-8 py-6 border-6 border-black neo-brutal font-brutal text-2xl hover:bg-red-700">
                 🚀 TESTAR NO WEBAPP
             </button>
@@ -201,8 +192,7 @@ XP_BONUS: 20"
             <div id="cacheStatus" class="font-mono text-sm">
                 Verificando...
             </div>
-            <button
-                onclick="clearCache()"
+            <button onclick="clearCache()"
                 class="mt-4 bg-moz-red text-white px-4 py-2 border-4 border-white font-bold hover:bg-red-700">
                 🗑️ LIMPAR CACHE
             </button>
@@ -548,4 +538,5 @@ XP_BONUS: 20`;
     </script>
 
 </body>
+
 </html>

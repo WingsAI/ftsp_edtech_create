@@ -106,10 +106,10 @@ const UI = {
                 messageDiv.appendChild(bubble);
                 chatContainer.appendChild(messageDiv);
 
-                // Scroll suave para o final
+                // Scroll imediato para o final (sem animação)
                 chatContainer.scrollTo({
                     top: chatContainer.scrollHeight,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 });
 
                 resolve();
@@ -136,7 +136,7 @@ const UI = {
 
         chatContainer.scrollTo({
             top: chatContainer.scrollHeight,
-            behavior: 'smooth'
+            behavior: 'auto'
         });
     },
 
