@@ -9,120 +9,86 @@
 
     <title>Fundamentos da Fé | ConversaLearn Moçambique</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?v=3.4.1"></script>
-
     <!-- Prevent Cache -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'moz-green': '#2E7D32',
-                        'moz-yellow': '#FDD835',
-                        'moz-red': '#EF9A9A',
-                        'moz-black': '#1a1a1a',
-                        'brutal-bg': '#FAFAFA',
-                        'brutal-shadow': '#000000',
-                    },
-                    fontFamily: {
-                        'brutal': ['Arial', 'sans-serif'],
-                        'mono': ['Courier New', 'monospace'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
+    <!-- Apple-style Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet - Apple Design System -->
+    <link rel="stylesheet" href="styles.css">
 
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #FAFAFA;
+        /* Page-specific styles for index.html */
+
+        /* Sticky Navigation for Landing Page */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all var(--transition);
         }
 
-        .font-brutal {
-            font-family: 'Arial', sans-serif;
-            font-weight: 400;
+        /* Progress Bar for Landing Page */
+        .progress-bar-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--color-accent);
+            z-index: 1001;
+            transition: width 0.1s ease;
+            opacity: 0.8;
         }
 
-        .font-mono {
-            font-family: 'Courier New', monospace;
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
         }
 
-        /* Neobrutalist Shadow - Modified to be Static & Rounded */
-        .neo-brutal {
-            border: 2px solid #1a1a1a;
-            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.25);
         }
 
-        .neo-brutal:hover {
-            /* No movement */
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
         }
 
-        .neo-brutal-xl {
-            border: 2px solid #1a1a1a;
-            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-        }
-
-        .neo-brutal-xl:hover {
-            /* No movement */
-        }
-
-        /* Animations Removed */
-
-        .float-animation {
-            /* Static */
-        }
-
-        .rotate-slow {
-            /* Static */
-        }
-
-        /* Scroll Reveal - Forced Visible */
-        .scroll-reveal {
-            opacity: 1;
-            transform: none;
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Glitch Effect Removed */
-        .glitch {
-            position: relative;
-        }
-
-        /* Stripe Pattern */
-        .stripe-pattern {
-            background-image: repeating-linear-gradient(45deg,
-                    transparent,
-                    transparent 10px,
-                    rgba(0, 0, 0, 0.05) 10px,
-                    rgba(0, 0, 0, 0.05) 20px);
-        }
-
-        /* Cross Pattern */
-        .cross-pattern {
-            background-image:
-                linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
+        .btn-secondary:hover {
+            background: var(--color-bg-secondary);
         }
 
         /* Moz Flag Pattern */
@@ -139,196 +105,162 @@
                     #009639 66.66%,
                     #009639 100%);
         }
-
-        /* Sticky Navigation */
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #D21034, #FCE100, #009639);
-            z-index: 100;
-            transition: width 0.1s ease;
-        }
     </style>
 </head>
 
-<body class="bg-brutal-bg overflow-x-hidden">
+<body>
 
-    <!-- VERSION: 2024-NEOBRUTALIST-MOZAMBIQUE -->
+    <!-- VERSION: 2025-APPLE-DESIGN -->
 
     <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
+    <div class="progress-bar-scroll" id="progressBar"></div>
 
-    <!-- Navigation -->
-    <nav class="sticky-nav bg-moz-green border-b-6 border-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-4">
-                    <div
-                        class="w-12 h-12 bg-moz-yellow border-2 border-black rounded-xl flex items-center justify-center font-brutal text-2xl">
+    <!-- Navigation - Apple Style -->
+    <nav class="sticky-nav">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; height: 48px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 32px; height: 32px; background: var(--moz-green); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">
                         ✝
                     </div>
-                    <h1 class="font-brutal text-white text-2xl md:text-3xl">
-                        CONVERSALEARN
-                    </h1>
+                    <span style="font-size: 19px; font-weight: 600; color: var(--color-text-primary);">
+                        ConversaLearn
+                    </span>
                 </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#sobre" class="text-white hover:text-moz-yellow transition">SOBRE</a>
-                    <a href="#licoes" class="text-white hover:text-moz-yellow transition">LIÇÕES</a>
-                    <a href="content-creator.html" class="text-white hover:text-moz-yellow transition">✍️ CRIAR</a>
-                    <a href="#comecar"
-                        class="bg-moz-red text-white px-6 py-2 border-2 border-black rounded-lg font-brutal hover:bg-moz-yellow hover:text-black">
-                        COMEÇAR
+                <div id="desktopNav" style="display: none; gap: 24px; align-items: center;">
+                    <a href="#sobre" style="text-decoration: none; color: var(--color-text-primary); font-size: 15px; transition: opacity var(--transition);" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Sobre</a>
+                    <a href="#licoes" style="text-decoration: none; color: var(--color-text-primary); font-size: 15px; transition: opacity var(--transition);" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Lições</a>
+                    <a href="content-creator.html" style="text-decoration: none; color: var(--color-text-primary); font-size: 15px; transition: opacity var(--transition);" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Criar</a>
+                    <a href="#comecar" class="btn-primary" style="padding: 8px 16px; font-size: 15px;">
+                        Começar
                     </a>
                 </div>
-                <button id="mobileMenuBtn" class="md:hidden text-white">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                <button id="mobileMenuBtn" style="display: none; background: none; border: none; cursor: pointer; padding: 8px;">
+                    <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-black border-t-4 border-white">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#sobre" class="block text-white hover:text-moz-yellow">SOBRE</a>
-                <a href="#licoes" class="block text-white hover:text-moz-yellow">LIÇÕES</a>
-                <a href="content-creator.html" class="block text-white hover:text-moz-yellow">✍️ CRIAR
-                    CONTEÚDO</a>
-                <a href="#comecar"
-                    class="block bg-moz-red text-white px-6 py-3 border-2 border-white font-brutal text-center">
-                    COMEÇAR
+        <div id="mobileMenu" style="display: none; background: white; border-top: 1px solid rgba(0,0,0,0.08);">
+            <div style="padding: 16px;">
+                <a href="#sobre" style="display: block; padding: 12px 0; text-decoration: none; color: var(--color-text-primary); font-size: 17px;">Sobre</a>
+                <a href="#licoes" style="display: block; padding: 12px 0; text-decoration: none; color: var(--color-text-primary); font-size: 17px;">Lições</a>
+                <a href="content-creator.html" style="display: block; padding: 12px 0; text-decoration: none; color: var(--color-text-primary); font-size: 17px;">Criar Conteúdo</a>
+                <a href="#comecar" class="btn-primary" style="display: block; margin-top: 12px; text-align: center;">
+                    Começar
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-20 cross-pattern">
-        <!-- Floating Elements (Static) -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-moz-yellow border-2 border-black rounded-full opacity-50">
-        </div>
-        <div class="absolute top-40 right-20 w-32 h-32 bg-moz-red border-2 border-black rounded-full opacity-50"></div>
-        <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-moz-green border-2 border-black rounded-full opacity-50">
-        </div>
+    <!-- Hero Section - Apple Style -->
+    <section style="min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-xxl) var(--spacing-md); background: var(--color-bg-primary); position: relative; overflow: hidden;">
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center scroll-reveal">
-                <!-- Main Title with Glitch -->
-                <h1 class="font-brutal text-6xl md:text-8xl lg:text-9xl mb-8 glitch" data-text="FUNDAMENTOS DA FÉ">
-                    FUNDAMENTOS DA FÉ
+        <div class="container">
+            <div class="scroll-reveal" style="text-align: center;">
+                <!-- Main Title -->
+                <h1 style="margin-bottom: var(--spacing-md);">
+                    Fundamentos da Fé
                 </h1>
 
                 <!-- Subtitle -->
-                <div class="inline-block bg-black text-white px-8 py-4 border-2 border-black neo-brutal mb-8">
-                    <p class="font-mono text-xl md:text-2xl">
-                        📖 APRENDA. 💬 CONVERSE. ✨ CRESÇA.
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <p style="font-size: 21px; color: var(--color-text-secondary); max-width: 700px; margin: 0 auto;">
+                        Aprenda. Converse. Cresça.
                     </p>
                 </div>
 
-                <!-- Description Box -->
-                <div class="max-w-2xl mx-auto bg-white border-2 border-black neo-brutal-xl p-8 mb-12">
-                    <p class="text-xl md:text-2xl mb-4">
+                <!-- Description -->
+                <div style="max-width: 800px; margin: 0 auto var(--spacing-xl) auto;">
+                    <p style="font-size: 19px; margin-bottom: var(--spacing-sm); line-height: 1.6;">
                         Descubra os fundamentos da fé cristã de forma
-                        <span class="bg-moz-yellow px-2 py-1 rounded border border-black">CONVERSACIONAL</span>,
-                        <span class="bg-moz-green text-white px-2 py-1 rounded border border-black">BÍBLICA</span> e
-                        <span class="bg-moz-red text-white px-2 py-1 rounded border border-black">PRÁTICA</span>
+                        <span style="color: var(--moz-green); font-weight: 600;">conversacional</span>,
+                        <span style="color: var(--color-accent); font-weight: 600;">bíblica</span> e
+                        <span style="color: var(--moz-green); font-weight: 600;">prática</span>
                     </p>
-                    <p class="text-lg text-gray-700">
-                        Micro-learning de 3-5 minutos | Contexto Moçambique 🇲🇿
+                    <p style="font-size: 17px; color: var(--color-text-secondary);">
+                        Micro-learning de 3-5 minutos · Contexto Moçambique 🇲🇿
                     </p>
                 </div>
 
                 <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="webapp.html"
-                        class="bg-moz-red text-white px-12 py-6 border-2 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-yellow hover:text-black">
-                        🚀 COMEÇAR AGORA
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; align-items: center; margin-bottom: var(--spacing-xl);">
+                    <a href="webapp.html" class="btn-primary" style="padding: 16px 40px; font-size: 19px;">
+                        Começar agora
                     </a>
-                    <a href="#sobre"
-                        class="bg-white text-black px-12 py-6 border-2 border-black neo-brutal-xl font-brutal text-2xl hover:bg-moz-green hover:text-white">
-                        📚 SABER MAIS
+                    <a href="#sobre" class="btn-secondary" style="padding: 16px 40px; font-size: 19px;">
+                        Saber mais
                     </a>
                 </div>
 
                 <!-- Stats -->
-                <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-16">
-                    <div class="bg-moz-yellow border-2 border-black p-6 neo-brutal">
-                        <div class="font-brutal text-4xl mb-2">2</div>
-                        <div>LIÇÕES</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--spacing-md); max-width: 600px; margin: 0 auto;">
+                    <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                        <div style="font-size: 36px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px;">2</div>
+                        <div style="font-size: 15px; color: var(--color-text-secondary);">Lições</div>
                     </div>
-                    <div class="bg-moz-green text-white border-2 border-black p-6 neo-brutal">
-                        <div class="font-brutal text-4xl mb-2">4-5</div>
-                        <div>MINUTOS</div>
+                    <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                        <div style="font-size: 36px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px;">4-5</div>
+                        <div style="font-size: 15px; color: var(--color-text-secondary);">Minutos</div>
                     </div>
-                    <div class="bg-moz-red text-white border-2 border-black p-6 neo-brutal">
-                        <div class="font-brutal text-4xl mb-2">100%</div>
-                        <div>GRÁTIS</div>
+                    <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                        <div style="font-size: 36px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px;">100%</div>
+                        <div style="font-size: 15px; color: var(--color-text-secondary);">Grátis</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="py-20 bg-white stripe-pattern">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2
-                    class="font-brutal text-5xl md:text-7xl mb-6 inline-block border-2 border-black bg-moz-yellow px-8 py-4">
-                    POR QUE CONVERSALEARN?
+    <!-- About Section - Apple Style -->
+    <section id="sobre" style="padding: var(--spacing-xxl) var(--spacing-md); background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="scroll-reveal" style="text-align: center; margin-bottom: var(--spacing-xl);">
+                <h2 style="margin-bottom: var(--spacing-sm);">
+                    Por que ConversaLearn?
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
                 <!-- Feature 1 -->
-                <div class="bg-moz-green text-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">💬</div>
-                    <h3 class="font-brutal text-3xl mb-4">CONVERSACIONAL</h3>
-                    <p class="text-lg leading-relaxed">
+                <div class="card scroll-reveal" style="background: white;">
+                    <div style="font-size: 48px; margin-bottom: var(--spacing-sm);">💬</div>
+                    <h3 style="margin-bottom: var(--spacing-sm); color: var(--color-text-primary);">Conversacional</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.6;">
                         Não é um livro digital chato! É uma conversa real com um professor virtual que
                         guia você passo a passo. Como no WhatsApp, mas para aprender sobre Deus!
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-moz-red text-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">⏱️</div>
-                    <h3 class="font-brutal text-3xl mb-4">MICRO-LEARNING</h3>
-                    <p class="text-lg leading-relaxed">
-                        Apenas <strong>3-5 minutos</strong> por lição! Perfeito para você que tem uma vida ocupada mas
+                <div class="card scroll-reveal" style="background: white;">
+                    <div style="font-size: 48px; margin-bottom: var(--spacing-sm);">⏱️</div>
+                    <h3 style="margin-bottom: var(--spacing-sm); color: var(--color-text-primary);">Micro-learning</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.6;">
+                        Apenas <strong style="color: var(--color-text-primary);">3-5 minutos</strong> por lição! Perfeito para você que tem uma vida ocupada mas
                         quer crescer na fé. Estude no ônibus, na pausa do trabalho, em qualquer lugar!
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-moz-yellow border-2 border-black neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">🎮</div>
-                    <h3 class="font-brutal text-3xl mb-4">GAMIFICAÇÃO</h3>
-                    <p class="text-lg leading-relaxed">
-                        Ganhe <strong>Pontos</strong>, mantenha sua <strong>sequência</strong>, desbloqueie conquistas!
-                        O
-                        aprendizado fica divertido e você quer continuar voltando todos os dias!
+                <div class="card scroll-reveal" style="background: white;">
+                    <div style="font-size: 48px; margin-bottom: var(--spacing-sm);">🎮</div>
+                    <h3 style="margin-bottom: var(--spacing-sm); color: var(--color-text-primary);">Gamificação</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.6;">
+                        Ganhe <strong style="color: var(--color-text-primary);">pontos</strong>, mantenha sua <strong style="color: var(--color-text-primary);">sequência</strong>, desbloqueie conquistas!
+                        O aprendizado fica divertido e você quer continuar voltando todos os dias!
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-black text-white border-2 border-moz-green neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">🇲🇿</div>
-                    <h3 class="font-brutal text-3xl mb-4">CONTEXTO MOÇAMBIQUE</h3>
-                    <p class="text-lg leading-relaxed">
-                        Histórias de <strong>Maria em Nampula</strong>, <strong>Pedro buscando água</strong>... Conteúdo
+                <div class="card scroll-reveal" style="background: white;">
+                    <div style="font-size: 48px; margin-bottom: var(--spacing-sm);">🇲🇿</div>
+                    <h3 style="margin-bottom: var(--spacing-sm); color: var(--color-text-primary);">Contexto Moçambique</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.6;">
+                        Histórias de <strong style="color: var(--color-text-primary);">Maria em Nampula</strong>, <strong style="color: var(--color-text-primary);">Pedro buscando água</strong>... Conteúdo
                         que fala com VOCÊ, na SUA realidade, com os SEUS desafios!
                     </p>
                 </div>
@@ -337,85 +269,79 @@
     </section>
 
     <!-- Lessons Section -->
-    <section id="licoes" class="py-20 bg-brutal-bg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <div class="inline-block bg-moz-red text-white px-8 py-4 border-2 border-black mb-6">
-                    <span class="font-mono text-xl">📚 VOLUME 1</span>
+    <section id="licoes" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
+                <div style="display: inline-block; background: var(--moz-red); color: white; padding: 12px 24px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-md); font-size: 15px; font-weight: 500;">
+                    📚 VOLUME 1
                 </div>
-                <h2 class="font-brutal text-5xl md:text-7xl mb-6">
+                <h2 style="margin-bottom: var(--spacing-md);">
                     LIÇÕES DISPONÍVEIS
                 </h2>
             </div>
 
-            <div class="space-y-8">
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-md); max-width: 980px; margin: 0 auto;">
                 <!-- Lesson 1 -->
-                <div
-                    class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                        <div class="flex-1">
-                            <div
-                                class="inline-block bg-moz-green text-white px-4 py-2 border-2 border-black font-brutal mb-4">
+                <div class="scroll-reveal lesson-card" onclick="window.location.href='webapp.html'" style="background: var(--color-bg-primary); border-radius: var(--radius-lg); padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)';">
+                    <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                        <div style="flex: 1;">
+                            <div style="display: inline-block; background: var(--moz-green); color: white; padding: 8px 16px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">
                                 LIÇÃO 01
                             </div>
-                            <h3 class="font-brutal text-3xl md:text-4xl mb-4">QUEM É DEUS?</h3>
-                            <p class="text-lg mb-4">
+                            <h3 style="margin-bottom: var(--spacing-sm);">QUEM É DEUS?</h3>
+                            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
                                 Maria olha para o céu ao amanhecer e pergunta: "Quem fez tudo isso?"
                                 Descubra quem é o Criador, como é Seu caráter e por que isso muda TUDO na sua vida.
                             </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 4
-                                    min</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖
-                                    Gênesis 1:1</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 80
-                                    Pontos</span>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--spacing-sm);">
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">⏱️ 4 min</span>
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">📖 Gênesis 1:1</span>
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">⭐ 80 Pontos</span>
                             </div>
                         </div>
-                        <div class="bg-moz-red text-white px-8 py-4 border-2 border-black font-brutal text-xl">
-                            COMEÇAR →
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="background: var(--moz-red); color: white; padding: 14px 28px; border-radius: var(--radius-md); font-size: 16px; font-weight: 600;">
+                                COMEÇAR →
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Lesson 2 -->
-                <div
-                    class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal hover:bg-moz-yellow transition-colors cursor-pointer">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                        <div class="flex-1">
-                            <div
-                                class="inline-block bg-moz-green text-white px-4 py-2 border-2 border-black font-brutal mb-4">
+                <div class="scroll-reveal lesson-card" onclick="window.location.href='webapp.html'" style="background: var(--color-bg-primary); border-radius: var(--radius-lg); padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all var(--transition); cursor: pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)';">
+                    <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                        <div style="flex: 1;">
+                            <div style="display: inline-block; background: var(--moz-green); color: white; padding: 8px 16px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">
                                 LIÇÃO 02
                             </div>
-                            <h3 class="font-brutal text-3xl md:text-4xl mb-4">O SER HUMANO E O PECADO</h3>
-                            <p class="text-lg mb-4">
+                            <h3 style="margin-bottom: var(--spacing-sm);">O SER HUMANO E O PECADO</h3>
+                            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
                                 Pedro vê injustiça ao seu redor e até ele mesmo faz o errado.
                                 Por que o mundo é assim? O que é pecado? Há esperança? Uma lição honesta e
                                 transformadora.
                             </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⏱️ 5
-                                    min</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">📖
-                                    Romanos 3:23</span>
-                                <span class="bg-black text-white px-3 py-1 border-2 border-black text-sm font-mono">⭐ 90
-                                    Pontos</span>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--spacing-sm);">
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">⏱️ 5 min</span>
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">📖 Romanos 3:23</span>
+                                <span style="background: var(--color-bg-secondary); color: var(--color-text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 14px;">⭐ 90 Pontos</span>
                             </div>
                         </div>
-                        <div class="bg-moz-red text-white px-8 py-4 border-2 border-black font-brutal text-xl">
-                            COMEÇAR →
+                        <div style="display: flex; justify-content: flex-end;">
+                            <span style="background: var(--moz-red); color: white; padding: 14px 28px; border-radius: var(--radius-md); font-size: 16px; font-weight: 600;">
+                                COMEÇAR →
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Coming Soon -->
-                <div class="bg-gray-200 border-2 border-black p-8 scroll-reveal opacity-60">
-                    <div class="text-center">
-                        <div class="inline-block bg-black text-white px-6 py-3 border-2 border-black font-brutal mb-4">
+                <div class="scroll-reveal" style="background: var(--color-bg-tertiary); border-radius: var(--radius-lg); padding: var(--spacing-lg); opacity: 0.7;">
+                    <div style="text-align: center;">
+                        <div style="display: inline-block; background: var(--color-text-primary); color: white; padding: 10px 20px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">
                             EM BREVE
                         </div>
-                        <h3 class="font-brutal text-2xl md:text-3xl mb-2">JESUS CRISTO, O SALVADOR</h3>
-                        <p class="text-lg">A próxima lição está sendo preparada com muito carinho! 🙏</p>
+                        <h3 style="margin-bottom: var(--spacing-xs);">JESUS CRISTO, O SALVADOR</h3>
+                        <p style="color: var(--color-text-secondary);">A próxima lição está sendo preparada com muito carinho! 🙏</p>
                     </div>
                 </div>
             </div>
@@ -423,43 +349,40 @@
     </section>
 
     <!-- How It Works -->
-    <section class="py-20 bg-moz-green text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="font-brutal text-5xl md:text-7xl mb-6">COMO FUNCIONA?</h2>
-                <p class="text-2xl">É tão simples quanto 1, 2, 3!</p>
+    <section style="background: linear-gradient(135deg, var(--moz-green) 0%, #1B5E20 100%); color: white;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
+                <h2 style="color: white; margin-bottom: var(--spacing-sm);">Como Funciona?</h2>
+                <p style="font-size: clamp(18px, 2vw, 21px); color: rgba(255, 255, 255, 0.9);">É tão simples quanto 1, 2, 3!</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center scroll-reveal">
-                    <div
-                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 980px; margin: 0 auto;">
+                <div style="text-align: center;" class="scroll-reveal">
+                    <div style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         1
                     </div>
-                    <h3 class="font-brutal text-3xl mb-4">LEIA</h3>
-                    <p class="text-xl">
+                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Leia</h3>
+                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
                         O professor envia mensagens curtas. Leia como se fosse um chat!
                     </p>
                 </div>
 
-                <div class="text-center scroll-reveal">
-                    <div
-                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+                <div style="text-align: center;" class="scroll-reveal">
+                    <div style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         2
                     </div>
-                    <h3 class="font-brutal text-3xl mb-4">RESPONDA</h3>
-                    <p class="text-xl">
+                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Responda</h3>
+                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
                         Escolha respostas, faça quizzes, interaja! Você não é passivo.
                     </p>
                 </div>
 
-                <div class="text-center scroll-reveal">
-                    <div
-                        class="w-24 h-24 bg-moz-yellow border-2 border-black mx-auto mb-6 flex items-center justify-center font-brutal text-5xl">
+                <div style="text-align: center;" class="scroll-reveal">
+                    <div style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         3
                     </div>
-                    <h3 class="font-brutal text-3xl mb-4">CRESÇA</h3>
-                    <p class="text-xl">
+                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Cresça</h3>
+                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
                         Ganhe Pontos, mantenha a sequência, e principalmente: cresça na fé!
                     </p>
                 </div>
@@ -468,42 +391,42 @@
     </section>
 
     <!-- Create Your Own -->
-    <section class="py-20 bg-moz-yellow">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center scroll-reveal">
-                <h2 class="font-brutal text-5xl md:text-7xl mb-6">
-                    ✍️ CRIE SEU PRÓPRIO CONTEÚDO
+    <section style="background: var(--moz-yellow);">
+        <div class="container">
+            <div style="text-align: center;" class="scroll-reveal">
+                <h2 style="margin-bottom: var(--spacing-sm);">
+                    ✍️ Crie Seu Próprio Conteúdo
                 </h2>
-                <p class="text-2xl mb-8">
+                <p style="font-size: clamp(18px, 2vw, 21px); color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
                     Quer ensinar sua própria lição? É simples e rápido!
                 </p>
 
-                <div class="bg-black text-white border-2 border-black neo-brutal p-8 mb-8 max-w-3xl mx-auto">
-                    <div class="grid md:grid-cols-3 gap-6 mb-6">
-                        <div class="text-center">
-                            <div class="text-5xl mb-2">📝</div>
-                            <p>Cole seu texto</p>
-                            <p class="text-sm text-gray-400">Até 1000 caracteres</p>
+                <div style="background: var(--color-text-primary); color: white; border-radius: var(--radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); max-width: 800px; margin-left: auto; margin-right: auto; box-shadow: var(--shadow-lg);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; margin-bottom: var(--spacing-xs);">📝</div>
+                            <p style="font-weight: 600; margin-bottom: 4px;">Cole seu texto</p>
+                            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Até 10000 caracteres</p>
                         </div>
-                        <div class="text-center">
-                            <div class="text-5xl mb-2">🔄</div>
-                            <p>Auto-conversão</p>
-                            <p class="text-sm text-gray-400">Vira JSON na hora</p>
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; margin-bottom: var(--spacing-xs);">🔄</div>
+                            <p style="font-weight: 600; margin-bottom: 4px;">Auto-conversão</p>
+                            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Vira JSON na hora</p>
                         </div>
-                        <div class="text-center">
-                            <div class="text-5xl mb-2">💾</div>
-                            <p>Salva no cache</p>
-                            <p class="text-sm text-gray-400">Usa no webapp</p>
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; margin-bottom: var(--spacing-xs);">💾</div>
+                            <p style="font-weight: 600; margin-bottom: 4px;">Salva no cache</p>
+                            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Usa no webapp</p>
                         </div>
                     </div>
 
                     <a href="content-creator.html"
-                        class="inline-block bg-moz-red text-white px-12 py-6 border-2 border-white neo-brutal font-brutal text-2xl hover:bg-white hover:text-black">
-                        🚀 CRIAR AGORA
+                        class="btn-primary" style="font-size: 19px; padding: 18px 40px; background: var(--moz-red); text-decoration: none;">
+                        🚀 Criar Agora
                     </a>
                 </div>
 
-                <p class="text-lg font-mono">
+                <p style="font-size: 16px; color: var(--color-text-secondary);">
                     Perfeito para pastores, líderes e educadores! 🙏
                 </p>
             </div>
@@ -511,90 +434,83 @@
     </section>
 
     <!-- Testimonials (Visual) -->
-    <section class="py-20 bg-brutal-bg stripe-pattern">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="font-brutal text-5xl md:text-7xl mb-6">
-                    BASEADO NA VERDADE
+    <section style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
+                <h2 style="margin-bottom: var(--spacing-md);">
+                    Baseado na Verdade
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">📖</div>
-                    <h3 class="font-brutal text-2xl mb-4">SOLA SCRIPTURA</h3>
-                    <p class="text-lg leading-relaxed">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-lg); max-width: 900px; margin: 0 auto;">
+                <div class="card scroll-reveal">
+                    <div style="font-size: 56px; margin-bottom: var(--spacing-md);">📖</div>
+                    <h3 style="margin-bottom: var(--spacing-sm);">Sola Scriptura</h3>
+                    <p style="font-size: 17px; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">
                         "Santifica-os na verdade; a tua palavra é a verdade."
                     </p>
-                    <p class="font-mono text-sm">— João 17:17</p>
+                    <p style="font-size: 14px; color: var(--color-text-secondary); font-style: italic;">— João 17:17</p>
                 </div>
 
-                <div class="bg-white border-2 border-black neo-brutal-xl p-8 scroll-reveal">
-                    <div class="text-6xl mb-4">✝️</div>
-                    <h3 class="font-brutal text-2xl mb-4">SOLUS CHRISTUS</h3>
-                    <p class="text-lg leading-relaxed">
+                <div class="card scroll-reveal">
+                    <div style="font-size: 56px; margin-bottom: var(--spacing-md);">✝️</div>
+                    <h3 style="margin-bottom: var(--spacing-sm);">Solus Christus</h3>
+                    <p style="font-size: 17px; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">
                         "E em nenhum outro há salvação, porque também debaixo do céu nenhum outro nome há, dado entre os
                         homens, pelo qual devamos ser salvos."
                     </p>
-                    <p class="font-mono text-sm">— Atos 4:12</p>
+                    <p style="font-size: 14px; color: var(--color-text-secondary); font-style: italic;">— Atos 4:12</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="comecar" class="py-32 bg-moz-red text-white relative overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-32 h-32 border-2 border-white rotate-12 float-animation"></div>
-            <div class="absolute top-1/4 right-20 w-40 h-40 border-2 border-white rounded-full float-animation"
-                style="animation-delay: 0.5s;"></div>
-            <div class="absolute bottom-20 left-1/3 w-24 h-24 border-2 border-white rotate-45 float-animation"
-                style="animation-delay: 1s;"></div>
-        </div>
+    <section id="comecar" style="background: linear-gradient(135deg, var(--moz-red) 0%, #d32f2f 100%); color: white; position: relative; overflow: hidden;">
+        <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 10;">
+            <div class="scroll-reveal">
+                <h2 style="color: white; margin-bottom: var(--spacing-md);">
+                    Pronto para Começar?
+                </h2>
+                <p style="font-size: clamp(20px, 2.5vw, 28px); color: rgba(255, 255, 255, 0.95); margin-bottom: var(--spacing-xl);">
+                    Sua jornada nos fundamentos da fé cristã começa agora! 🚀
+                </p>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-reveal">
-            <h2 class="font-brutal text-6xl md:text-8xl mb-8">
-                PRONTO PARA COMEÇAR?
-            </h2>
-            <p class="text-2xl md:text-3xl mb-12">
-                Sua jornada nos fundamentos da fé cristã começa AGORA! 🚀
-            </p>
+                <a href="webapp.html"
+                    class="btn-primary" style="font-size: 21px; padding: 20px 48px; background: white; color: var(--moz-red); text-decoration: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);">
+                    🎯 Iniciar Lição 1
+                </a>
 
-            <a href="webapp.html"
-                class="inline-block bg-moz-yellow text-black px-16 py-8 border-2 border-black neo-brutal-xl font-brutal text-3xl hover:bg-white transition-colors">
-                🎯 INICIAR LIÇÃO 1
-            </a>
-
-            <p class="mt-8 text-xl font-mono">
-                Gratuito | Sem cadastro | Funciona offline
-            </p>
+                <p style="margin-top: var(--spacing-lg); font-size: 17px; color: rgba(255, 255, 255, 0.9);">
+                    Gratuito | Sem cadastro | Funciona offline
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12 border-t-2 border-moz-yellow">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+    <footer style="background: var(--color-text-primary); color: white; padding: var(--spacing-xl) var(--spacing-md); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
                 <div>
-                    <h3 class="font-brutal text-2xl mb-4">CONVERSALEARN</h3>
-                    <p class="text-gray-400">
+                    <h3 style="color: white; font-size: 21px; margin-bottom: var(--spacing-sm);">ConversaLearn</h3>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 15px; line-height: 1.6;">
                         Micro-learning cristão para Moçambique e além.
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="font-brutal text-xl mb-4">LINKS RÁPIDOS</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#sobre" class="text-gray-400 hover:text-moz-yellow">Sobre</a></li>
-                        <li><a href="#licoes" class="text-gray-400 hover:text-moz-yellow">Lições</a></li>
-                        <li><a href="webapp.html" class="text-gray-400 hover:text-moz-yellow">WebApp</a></li>
+                    <h3 style="color: white; font-size: 17px; margin-bottom: var(--spacing-sm);">Links Rápidos</h3>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--spacing-xs);">
+                        <li><a href="#sobre" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 15px; transition: color var(--transition);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Sobre</a></li>
+                        <li><a href="#licoes" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 15px; transition: color var(--transition);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Lições</a></li>
+                        <li><a href="webapp.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 15px; transition: color var(--transition);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">WebApp</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="font-brutal text-xl mb-4">FUNDAMENTOS</h3>
-                    <div class="space-y-2 text-sm font-mono text-gray-400">
+                    <h3 style="color: white; font-size: 17px; margin-bottom: var(--spacing-sm);">Fundamentos</h3>
+                    <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">
                         <p>✝️ Sola Scriptura</p>
                         <p>✝️ Sola Gratia</p>
                         <p>✝️ Sola Fide</p>
@@ -604,12 +520,12 @@
                 </div>
             </div>
 
-            <div class="border-t-2 border-gray-700 pt-8 text-center">
-                <div class="moz-flag h-3 w-full max-w-xs mx-auto mb-4"></div>
-                <p class="text-gray-400 font-mono">
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--spacing-lg); text-align: center;">
+                <div class="moz-flag" style="height: 12px; width: 100%; max-width: 300px; margin: 0 auto var(--spacing-sm);"></div>
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: 15px;">
                     &copy; 2025 ConversaLearn | Feito com ❤️ para a glória de Deus
                 </p>
-                <p class="text-gray-500 text-sm mt-2">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: 14px; margin-top: var(--spacing-xs); font-style: italic;">
                     "Porque dele e por ele, e para ele, são todas as coisas; glória, pois, a ele eternamente. Amém." -
                     Romanos 11:36
                 </p>
@@ -675,16 +591,22 @@
             });
         });
 
-        // Lesson Cards Click
-        document.querySelectorAll('[class*="hover:bg-moz-yellow"]').forEach(card => {
-            card.addEventListener('click', () => {
-                window.location.href = 'index.html';
-            });
-        });
+        // Responsive Navigation
+        function updateNavDisplay() {
+            const desktopNav = document.getElementById('desktopNav');
+            const mobileBtn = document.getElementById('mobileMenuBtn');
 
-        window.addEventListener('load', () => {
-            // Static elements, no loop
-        });
+            if (window.innerWidth >= 768) {
+                desktopNav.style.display = 'flex';
+                mobileBtn.style.display = 'none';
+            } else {
+                desktopNav.style.display = 'none';
+                mobileBtn.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('load', updateNavDisplay);
+        window.addEventListener('resize', updateNavDisplay);
     </script>
 </body>
 
