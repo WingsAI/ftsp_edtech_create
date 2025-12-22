@@ -289,6 +289,7 @@ section {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -354,11 +355,16 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .message.professor::before {
-    content: '🤖';
-    font-size: 24px;
+    background-color: var(--moz-green);
+    color: white;
+    content: 'CL';
+    font-size: 13px;
+    font-weight: 700;
 }
 
 /* ===================================
@@ -441,9 +447,12 @@ section {
 }
 
 .btn-option.incorrect {
-    background: var(--moz-red);
-    color: white;
-    border-color: var(--moz-red);
+    background: #FFF3E0;
+    /* Laranja bem claro */
+    color: #E65100;
+    /* Laranja escuro para contraste */
+    border-color: #FFB74D;
+    /* Laranja médio */
 }
 
 .btn-option:disabled {
@@ -521,9 +530,12 @@ section {
 }
 
 @keyframes fire-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.15);
     }

@@ -1,15 +1,16 @@
-// ===== Estado Global da Aplicação =====
 const AppState = {
     xp: 0,
     streak: 0,
     currentCourse: null,
     currentLesson: null,
+    currentLessonIndex: 0,
     currentDropIndex: 0,
     currentMessageIndex: 0,
     totalDrops: 0,
     completedDrops: 0,
     lastStudyDate: null,
-    consecutiveCorrect: 0
+    consecutiveCorrect: 0,
+    completedLessons: [] // Array de IDs de lições completadas
 };
 
 // ===== LocalStorage =====
@@ -18,7 +19,8 @@ const Storage = {
         localStorage.setItem('conversalearn-state', JSON.stringify({
             xp: AppState.xp,
             streak: AppState.streak,
-            lastStudyDate: AppState.lastStudyDate
+            lastStudyDate: AppState.lastStudyDate,
+            completedLessons: AppState.completedLessons
         }));
     },
 
@@ -29,6 +31,7 @@ const Storage = {
             AppState.xp = data.xp || 0;
             AppState.streak = data.streak || 0;
             AppState.lastStudyDate = data.lastStudyDate;
+            AppState.completedLessons = data.completedLessons || [];
 
             // Verificar se manteve a streak
             this.checkStreak();
@@ -265,11 +268,18 @@ class LessonRunner {
 
                     showXPGain(interaction.bonusXP);
                     Storage.updateStreak();
+
+                    // Salvar progresso da lição
+                    if (AppState.currentLesson && !AppState.completedLessons.includes(AppState.currentLesson.id)) {
+                        AppState.completedLessons.push(AppState.currentLesson.id);
+                        Storage.save();
+                    }
+
                     UI.updateStats();
 
                     setTimeout(() => {
-                        alert('Lição completada! 🎉\n\nEm breve: próximas lições!');
-                        location.reload(); // Reinicia para demonstração
+                        alert('Lição completada! 🎉\n\nProgresso salvo com sucesso!');
+                        window.location.href = 'index.html'; // Volta para o início
                     }, 1000);
                 });
                 content.appendChild(completeBtn);
@@ -368,12 +378,17 @@ async function loadContent() {
             data = await response.json();
         }
 
-        // Pegar primeiro curso e primeira lição
+        // Ler o parâmetro da URL para saber qual lição carregar
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonIndex = parseInt(urlParams.get('lesson')) || 0;
+
+        // Pegar primeiro curso e a lição solicitada
         const course = data.courses[0];
-        const lesson = course.lessons[0];
+        const lesson = course.lessons[lessonIndex] || course.lessons[0];
 
         AppState.currentCourse = course;
         AppState.currentLesson = lesson;
+        AppState.currentLessonIndex = lessonIndex;
 
         console.log('✅ Lição carregada:', lesson.title);
 
