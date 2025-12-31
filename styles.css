@@ -20,18 +20,18 @@
     --color-bg-secondary: #f5f5f7;
     --color-bg-tertiary: #fbfbfd;
 
-    /* Mozambique accent colors - used sparingly */
-    --moz-green: #2E7D32;
-    --moz-yellow: #FDD835;
-    --moz-red: #EF5350;
+    /* Mozambique accent colors - subtle and professional */
+    --moz-green: #388E3C;
+    --moz-yellow: #FBC02D;
+    --moz-red: #E57373;
 
     /* Spacing Scale */
     --spacing-xs: 8px;
     --spacing-sm: 16px;
     --spacing-md: 24px;
     --spacing-lg: 48px;
-    --spacing-xl: 80px;
-    --spacing-xxl: 120px;
+    --spacing-xl: 48px;
+    --spacing-xxl: 48px;
 
     /* Border Radius */
     --radius-sm: 8px;

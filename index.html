@@ -105,6 +105,13 @@
                     #009639 66.66%,
                     #009639 100%);
         }
+
+        /* Responsive grid for feature cards - 2 per row on desktop */
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
     </style>
 </head>
 
@@ -171,7 +178,7 @@
 
     <!-- Hero Section - Apple Style -->
     <section
-        style="min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-xxl) var(--spacing-md); background: var(--color-bg-primary); position: relative; overflow: hidden;">
+        style="min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-lg) var(--spacing-md); background: var(--color-bg-primary); position: relative; overflow: hidden;">
 
         <div class="container">
             <div class="scroll-reveal" style="text-align: center;">
@@ -188,7 +195,7 @@
                 </div>
 
                 <!-- Description -->
-                <div style="max-width: 800px; margin: 0 auto var(--spacing-xl) auto;">
+                <div style="max-width: 800px; margin: 0 auto var(--spacing-lg) auto;">
                     <p style="font-size: 19px; margin-bottom: var(--spacing-sm); line-height: 1.6;">
                         Descubra os fundamentos da fé cristã de forma
                         <span style="color: var(--moz-green); font-weight: 600;">conversacional</span>,
@@ -202,7 +209,7 @@
 
                 <!-- CTA Buttons -->
                 <div
-                    style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; align-items: center; margin-bottom: var(--spacing-xl);">
+                    style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; align-items: center; margin-bottom: var(--spacing-lg);">
                     <a href="webapp.html" class="btn-primary" style="padding: 16px 40px; font-size: 19px;">
                         Começar agora
                     </a>
@@ -241,16 +248,16 @@
     </section>
 
     <!-- About Section - Apple Style -->
-    <section id="sobre" style="padding: var(--spacing-xxl) var(--spacing-md); background: var(--color-bg-secondary);">
+    <section id="sobre" style="padding: var(--spacing-xxl) var(--spacing-md); background: var(--color-bg-primary);">
         <div class="container">
-            <div class="scroll-reveal" style="text-align: center; margin-bottom: var(--spacing-xl);">
+            <div class="scroll-reveal" style="text-align: center; margin-bottom: var(--spacing-lg);">
                 <h2 style="margin-bottom: var(--spacing-sm);">
                     Por que ConversaLearn?
                 </h2>
             </div>
 
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
+            <div class="features-grid"
+                style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md);">
                 <!-- Feature 1 -->
                 <div class="card scroll-reveal" style="background: white;">
                     <div style="font-size: 48px; margin-bottom: var(--spacing-sm);">💬</div>
@@ -299,14 +306,14 @@
     </section>
 
     <!-- Lessons Section -->
-    <section id="licoes" style="background: var(--color-bg-secondary);">
+    <section id="licoes" style="background: var(--color-bg-primary); padding: var(--spacing-xxl) var(--spacing-md);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
+            <div style="text-align: center; margin-bottom: var(--spacing-lg);" class="scroll-reveal">
                 <div
-                    style="display: inline-block; background: var(--moz-red); color: white; padding: 12px 24px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-md); font-size: 15px; font-weight: 500;">
+                    style="display: inline-block; background: var(--moz-red); color: white; padding: 12px 24px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); font-size: 15px; font-weight: 500;">
                     📚 VOLUME 1
                 </div>
-                <h2 style="margin-bottom: var(--spacing-md);">
+                <h2>
                     LIÇÕES DISPONÍVEIS
                 </h2>
             </div>
@@ -408,45 +415,45 @@
     </section>
 
     <!-- How It Works -->
-    <section style="background: linear-gradient(135deg, var(--moz-green) 0%, #1B5E20 100%); color: white;">
+    <section style="background: var(--color-bg-primary); padding: var(--spacing-xxl) var(--spacing-md);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
-                <h2 style="color: white; margin-bottom: var(--spacing-sm);">Como Funciona?</h2>
-                <p style="font-size: clamp(18px, 2vw, 21px); color: rgba(255, 255, 255, 0.9);">É tão simples quanto 1,
+            <div style="text-align: center; margin-bottom: var(--spacing-lg);" class="scroll-reveal">
+                <h2 style="color: var(--color-text-primary); margin-bottom: var(--spacing-sm);">Como Funciona?</h2>
+                <p style="font-size: clamp(18px, 2vw, 21px); color: var(--color-text-secondary);">É tão simples quanto 1,
                     2, 3!</p>
             </div>
 
             <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 980px; margin: 0 auto;">
-                <div style="text-align: center;" class="scroll-reveal">
+                style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); max-width: 980px; margin: 0 auto;">
+                <div class="scroll-reveal" style="background: var(--color-bg-secondary); border-radius: 24px; padding: var(--spacing-lg); text-align: center;">
                     <div
-                        style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        style="width: 80px; height: 80px; background: var(--moz-green); border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: white; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         1
                     </div>
-                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Leia</h3>
-                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                    <h3 style="color: var(--color-text-primary); margin-bottom: var(--spacing-sm);">Leia</h3>
+                    <p style="font-size: 17px; color: var(--color-text-secondary); line-height: 1.6;">
                         O professor envia mensagens curtas. Leia como se fosse um chat!
                     </p>
                 </div>
 
-                <div style="text-align: center;" class="scroll-reveal">
+                <div class="scroll-reveal" style="background: var(--color-bg-secondary); border-radius: 24px; padding: var(--spacing-lg); text-align: center;">
                     <div
-                        style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        style="width: 80px; height: 80px; background: var(--moz-green); border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: white; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         2
                     </div>
-                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Responda</h3>
-                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                    <h3 style="color: var(--color-text-primary); margin-bottom: var(--spacing-sm);">Responda</h3>
+                    <p style="font-size: 17px; color: var(--color-text-secondary); line-height: 1.6;">
                         Escolha respostas, faça quizzes, interaja! Você não é passivo.
                     </p>
                 </div>
 
-                <div style="text-align: center;" class="scroll-reveal">
+                <div class="scroll-reveal" style="background: var(--color-bg-secondary); border-radius: 24px; padding: var(--spacing-lg); text-align: center;">
                     <div
-                        style="width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: var(--moz-green); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        style="width: 80px; height: 80px; background: var(--moz-green); border-radius: 50%; margin: 0 auto var(--spacing-md); display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 600; color: white; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                         3
                     </div>
-                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Cresça</h3>
-                    <p style="font-size: 17px; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                    <h3 style="color: var(--color-text-primary); margin-bottom: var(--spacing-sm);">Cresça</h3>
+                    <p style="font-size: 17px; color: var(--color-text-secondary); line-height: 1.6;">
                         Ganhe Pontos, mantenha a sequência, e principalmente: cresça na fé!
                     </p>
                 </div>
@@ -455,21 +462,24 @@
     </section>
 
     <!-- Create Your Own -->
-    <section style="background: var(--moz-yellow);">
+    <section style="background: var(--color-bg-primary); padding: var(--spacing-xxl) var(--spacing-md);">
         <div class="container">
             <div style="text-align: center;" class="scroll-reveal">
+                <div style="display: inline-block; background: var(--moz-yellow); color: var(--color-text-primary); padding: 10px 24px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-md); font-size: 15px; font-weight: 600;">
+                    ✍️ CRIE SEU CONTEÚDO
+                </div>
                 <h2 style="margin-bottom: var(--spacing-sm);">
-                    ✍️ Crie Seu Próprio Conteúdo
+                    Ensine Sua Própria Lição
                 </h2>
                 <p
                     style="font-size: clamp(18px, 2vw, 21px); color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
-                    Quer ensinar sua própria lição? É simples e rápido!
+                    É simples e rápido!
                 </p>
 
                 <div
                     style="background: var(--color-text-primary); color: white; border-radius: var(--radius-lg); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); max-width: 800px; margin-left: auto; margin-right: auto; box-shadow: var(--shadow-lg);">
                     <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-md);">
                         <div style="text-align: center;">
                             <div style="font-size: 48px; margin-bottom: var(--spacing-xs);">📝</div>
                             <p style="font-weight: 600; margin-bottom: 4px;">Cole seu texto</p>
@@ -501,9 +511,9 @@
     </section>
 
     <!-- Testimonials (Visual) -->
-    <section style="background: var(--color-bg-secondary);">
+    <section style="background: var(--color-bg-primary); padding: var(--spacing-xxl) var(--spacing-md);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: var(--spacing-xl);" class="scroll-reveal">
+            <div style="text-align: center; margin-bottom: var(--spacing-lg);" class="scroll-reveal">
                 <h2 style="margin-bottom: var(--spacing-md);">
                     Baseado na Verdade
                 </h2>
@@ -537,23 +547,26 @@
 
     <!-- CTA Section -->
     <section id="comecar"
-        style="background: linear-gradient(135deg, var(--moz-red) 0%, #d32f2f 100%); color: white; position: relative; overflow: hidden;">
-        <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 10;">
+        style="background: var(--color-bg-primary); padding: var(--spacing-xxl) var(--spacing-md);">
+        <div class="container" style="max-width: 900px; text-align: center;">
             <div class="scroll-reveal">
-                <h2 style="color: white; margin-bottom: var(--spacing-md);">
+                <div style="display: inline-block; background: var(--moz-red); color: white; padding: 10px 24px; border-radius: var(--radius-sm); margin-bottom: var(--spacing-md); font-size: 15px; font-weight: 600;">
+                    🎯 COMECE AGORA
+                </div>
+                <h2 style="color: var(--color-text-primary); margin-bottom: var(--spacing-md);">
                     Pronto para Começar?
                 </h2>
                 <p
-                    style="font-size: clamp(20px, 2.5vw, 28px); color: rgba(255, 255, 255, 0.95); margin-bottom: var(--spacing-xl);">
+                    style="font-size: clamp(20px, 2.5vw, 28px); color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
                     Sua jornada nos fundamentos da fé cristã começa agora! 🚀
                 </p>
 
                 <a href="webapp.html" class="btn-primary"
-                    style="font-size: 21px; padding: 20px 48px; background: white; color: var(--moz-red); text-decoration: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);">
-                    🎯 Iniciar Lição 1
+                    style="font-size: 21px; padding: 20px 48px; background: var(--moz-red); color: white; text-decoration: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);">
+                    Iniciar Lição 1
                 </a>
 
-                <p style="margin-top: var(--spacing-lg); font-size: 17px; color: rgba(255, 255, 255, 0.9);">
+                <p style="margin-top: var(--spacing-lg); font-size: 17px; color: var(--color-text-secondary);">
                     Gratuito | Sem cadastro | Funciona offline
                 </p>
             </div>
@@ -565,7 +578,7 @@
         style="background: var(--color-text-primary); color: white; padding: var(--spacing-xl) var(--spacing-md); border-top: 1px solid rgba(255, 255, 255, 0.1);">
         <div class="container">
             <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-md);">
                 <div>
                     <h3 style="color: white; font-size: 21px; margin-bottom: var(--spacing-sm);">ConversaLearn</h3>
                     <p style="color: rgba(255, 255, 255, 0.6); font-size: 15px; line-height: 1.6;">
